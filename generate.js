@@ -37,10 +37,15 @@ testCourse[0].units.forEach(function (unit, i) {
     unitContext = {
         unitNumber: i + 1,
         unitTitle: unit.title,
-        unitBadge: unit.earnedBadge,
+        unitBadge: 0,
         unitEarned: unit.unitEarned,
         unitPossible: unit.unitPossible
     };
+    if (unit.earnedBadge) {
+        unitContext.unitBadge = 1;
+    }
+
+
     unitC = unitScript(unitContext);
     $('#container').append(unitC);
 
@@ -50,7 +55,7 @@ testCourse[0].units.forEach(function (unit, i) {
         dayContext = {
             unitNumber: unitContext.unitNumber,
             dayTitle: day.title.toUpperCase(),
-            badge: day.badge,
+            badge: 0,
             dayEarned: day.dayEarned,
             dayPossible: day.dayPossible,
             prepEarned: day.prep.earned,
@@ -61,6 +66,9 @@ testCourse[0].units.forEach(function (unit, i) {
             electiveBarWidth: day.elective.earned / day.elective.possible * 331,
             electiveArrow: day.elective.earned / day.elective.possible * 331 - 3
         };
+        if (day.badge) {
+            dayContext.badge = 1;
+        }
         dayC = dayScript(dayContext);
         $('#container').append(dayC);
     })
