@@ -1,5 +1,4 @@
-var testCourse = [
-    {
+var testCourse = {
         "overall": {
             "overallPossible": 1000,
             "overallEarned": 310,
@@ -325,5 +324,4 @@ var testCourse = [
         ]
       }
     ]
-  }
-]
+};
