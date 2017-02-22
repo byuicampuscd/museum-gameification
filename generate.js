@@ -15,11 +15,11 @@ var overallScript = Handlebars.compile(overallTemplate),
 
 // declare & set context objects
 var overallContext = {
-        overallEarned: testCourse[0].overall.overallEarned,
-        overallPossible: testCourse[0].overall.overallPossible,
-        passing: testCourse[0].overall.passingValue,
-        barWidth: testCourse[0].overall.overallEarned / testCourse[0].overall.overallPossible * 1028,
-        arrow: ((testCourse[0].overall.overallEarned / testCourse[0].overall.overallPossible * 1028) - 4)
+        overallEarned: testCourse.overall.overallEarned,
+        overallPossible: testCourse.overall.overallPossible,
+        passing: testCourse.overall.passingValue,
+        barWidth: testCourse.overall.overallEarned / testCourse.overall.overallPossible * 1028,
+        arrow: ((testCourse.overall.overallEarned / testCourse.overall.overallPossible * 1028) - 4)
     },
     unitContext = {},
     dayContext = [];
@@ -29,11 +29,11 @@ var overallC = overallScript(overallContext),
     unitC,
     dayC;
 
-// append overall section to #container
-$('#container').append(overallC);
+// append overall section to #gamificationMuseum
+$('#gamificationMuseum').append(overallC);
 
 // loop through the units
-testCourse[0].units.forEach(function (unit, i) {
+testCourse.units.forEach(function (unit, i) {
     unitContext = {
         unitNumber: i + 1,
         unitTitle: unit.title,
@@ -47,7 +47,7 @@ testCourse[0].units.forEach(function (unit, i) {
 
 
     unitC = unitScript(unitContext);
-    $('#container').append(unitC);
+    $('#gamificationMuseum').append(unitC);
 
 
     // loop through days
@@ -70,7 +70,7 @@ testCourse[0].units.forEach(function (unit, i) {
             dayContext.badge = 1;
         }
         dayC = dayScript(dayContext);
-        $('#container').append(dayC);
+        $('#gamificationMuseum').append(dayC);
     })
 
 })

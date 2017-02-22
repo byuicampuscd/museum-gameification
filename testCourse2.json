@@ -1,46 +1,74 @@
 var testCourse = {
     "overall": {
         "overallPossible": 1000,
-        "overallEarned": 310,
+        "overallEarned": 696,
         "passingValue": 700
     },
     "units": [
         {
-            "title": "S. Georgia and S. Sandwich Isls.",
-            "earnedBadge": false,
+            "title": "Saudi Arabia",
+            "earnedBadge": true,
             "unitPossible": 140,
-            "unitEarned": 52,
+            "unitEarned": 118,
             "days": [
                 {
-                    "title": "Ohio",
+                    "title": "Maine",
                     "prep": {
+                        "earned": 6,
+                        "possible": 19
+                    },
+                    "elective": {
+                        "earned": 0,
+                        "possible": 10
+                    },
+                    "badge": false,
+                    "dayPossible": 8,
+                    "dayEarned": 24
+          },
+                {
+                    "title": "Delaware",
+                    "prep": {
+                        "earned": 9,
+                        "possible": 19
+                    },
+                    "elective": {
                         "earned": 5,
-                        "possible": 19
-                    },
-                    "elective": {
-                        "earned": 0,
                         "possible": 10
                     },
                     "badge": false,
-                    "dayPossible": 21,
+                    "dayPossible": 2,
                     "dayEarned": 24
           },
                 {
-                    "title": "Virginia",
+                    "title": "Indiana",
                     "prep": {
-                        "earned": 8,
+                        "earned": 12,
                         "possible": 19
                     },
                     "elective": {
-                        "earned": 0,
+                        "earned": 10,
                         "possible": 10
                     },
-                    "badge": false,
-                    "dayPossible": 4,
+                    "badge": true,
+                    "dayPossible": 24,
                     "dayEarned": 24
           },
                 {
-                    "title": "Connecticut",
+                    "title": "Guam",
+                    "prep": {
+                        "earned": 1,
+                        "possible": 19
+                    },
+                    "elective": {
+                        "earned": 4,
+                        "possible": 10
+                    },
+                    "badge": true,
+                    "dayPossible": 13,
+                    "dayEarned": 24
+          },
+                {
+                    "title": "Puerto Rico",
                     "prep": {
                         "earned": 19,
                         "possible": 19
@@ -49,134 +77,14 @@ var testCourse = {
                         "earned": 7,
                         "possible": 10
                     },
-                    "badge": true,
-                    "dayPossible": 17,
-                    "dayEarned": 24
-          },
-                {
-                    "title": "New Mexico",
-                    "prep": {
-                        "earned": 11,
-                        "possible": 19
-                    },
-                    "elective": {
-                        "earned": 5,
-                        "possible": 10
-                    },
                     "badge": false,
-                    "dayPossible": 21,
-                    "dayEarned": 24
-          },
-                {
-                    "title": "Missouri",
-                    "prep": {
-                        "earned": 7,
-                        "possible": 19
-                    },
-                    "elective": {
-                        "earned": 10,
-                        "possible": 10
-                    },
-                    "badge": true,
                     "dayPossible": 7,
                     "dayEarned": 24
           },
                 {
-                    "title": "Virgin Islands",
-                    "prep": {
-                        "earned": 7,
-                        "possible": 19
-                    },
-                    "elective": {
-                        "earned": 10,
-                        "possible": 10
-                    },
-                    "badge": true,
-                    "dayPossible": 16,
-                    "dayEarned": 24
-          },
-                {
-                    "title": "Oklahoma",
-                    "prep": {
-                        "earned": 16,
-                        "possible": 19
-                    },
-                    "elective": {
-                        "earned": 3,
-                        "possible": 10
-                    },
-                    "badge": true,
-                    "dayPossible": 11,
-                    "dayEarned": 24
-          }
-        ]
-      },
-        {
-            "title": "Equatorial Guinea",
-            "earnedBadge": true,
-            "unitPossible": 140,
-            "unitEarned": 21,
-            "days": [
-                {
-                    "title": "Rhode Island",
-                    "prep": {
-                        "earned": 7,
-                        "possible": 19
-                    },
-                    "elective": {
-                        "earned": 7,
-                        "possible": 10
-                    },
-                    "badge": false,
-                    "dayPossible": 17,
-                    "dayEarned": 24
-          },
-                {
-                    "title": "Puerto Rico",
-                    "prep": {
-                        "earned": 10,
-                        "possible": 19
-                    },
-                    "elective": {
-                        "earned": 9,
-                        "possible": 10
-                    },
-                    "badge": true,
-                    "dayPossible": 6,
-                    "dayEarned": 24
-          },
-                {
-                    "title": "Illinois",
+                    "title": "Washington",
                     "prep": {
                         "earned": 5,
-                        "possible": 19
-                    },
-                    "elective": {
-                        "earned": 3,
-                        "possible": 10
-                    },
-                    "badge": false,
-                    "dayPossible": 0,
-                    "dayEarned": 24
-          },
-                {
-                    "title": "Maryland",
-                    "prep": {
-                        "earned": 14,
-                        "possible": 19
-                    },
-                    "elective": {
-                        "earned": 2,
-                        "possible": 10
-                    },
-                    "badge": true,
-                    "dayPossible": 11,
-                    "dayEarned": 24
-          },
-                {
-                    "title": "Northern Mariana Islands",
-                    "prep": {
-                        "earned": 2,
                         "possible": 19
                     },
                     "elective": {
@@ -184,81 +92,39 @@ var testCourse = {
                         "possible": 10
                     },
                     "badge": true,
-                    "dayPossible": 2,
+                    "dayPossible": 12,
                     "dayEarned": 24
           },
                 {
-                    "title": "Iowa",
+                    "title": "Alaska",
                     "prep": {
-                        "earned": 15,
+                        "earned": 18,
                         "possible": 19
                     },
                     "elective": {
-                        "earned": 9,
+                        "earned": 6,
                         "possible": 10
                     },
                     "badge": true,
-                    "dayPossible": 15,
-                    "dayEarned": 24
-          },
-                {
-                    "title": "Minnesota",
-                    "prep": {
-                        "earned": 9,
-                        "possible": 19
-                    },
-                    "elective": {
-                        "earned": 9,
-                        "possible": 10
-                    },
-                    "badge": false,
-                    "dayPossible": 7,
+                    "dayPossible": 3,
                     "dayEarned": 24
           }
         ]
       },
         {
-            "title": "United Kingdom",
+            "title": "Afghanistan",
             "earnedBadge": false,
             "unitPossible": 140,
-            "unitEarned": 65,
+            "unitEarned": 21,
             "days": [
                 {
-                    "title": "Louisiana",
+                    "title": "Georgia",
                     "prep": {
-                        "earned": 19,
+                        "earned": 3,
                         "possible": 19
                     },
                     "elective": {
-                        "earned": 7,
-                        "possible": 10
-                    },
-                    "badge": false,
-                    "dayPossible": 4,
-                    "dayEarned": 24
-          },
-                {
-                    "title": "Montana",
-                    "prep": {
-                        "earned": 9,
-                        "possible": 19
-                    },
-                    "elective": {
-                        "earned": 10,
-                        "possible": 10
-                    },
-                    "badge": true,
-                    "dayPossible": 1,
-                    "dayEarned": 24
-          },
-                {
-                    "title": "Federated States Of Micronesia",
-                    "prep": {
-                        "earned": 13,
-                        "possible": 19
-                    },
-                    "elective": {
-                        "earned": 9,
+                        "earned": 6,
                         "possible": 10
                     },
                     "badge": true,
@@ -266,13 +132,105 @@ var testCourse = {
                     "dayEarned": 24
           },
                 {
-                    "title": "West Virginia",
+                    "title": "Virgin Islands",
                     "prep": {
-                        "earned": 12,
+                        "earned": 13,
                         "possible": 19
                     },
                     "elective": {
                         "earned": 5,
+                        "possible": 10
+                    },
+                    "badge": true,
+                    "dayPossible": 22,
+                    "dayEarned": 24
+          },
+                {
+                    "title": "Palau",
+                    "prep": {
+                        "earned": 9,
+                        "possible": 19
+                    },
+                    "elective": {
+                        "earned": 1,
+                        "possible": 10
+                    },
+                    "badge": true,
+                    "dayPossible": 7,
+                    "dayEarned": 24
+          },
+                {
+                    "title": "Minnesota",
+                    "prep": {
+                        "earned": 6,
+                        "possible": 19
+                    },
+                    "elective": {
+                        "earned": 8,
+                        "possible": 10
+                    },
+                    "badge": false,
+                    "dayPossible": 16,
+                    "dayEarned": 24
+          },
+                {
+                    "title": "Florida",
+                    "prep": {
+                        "earned": 9,
+                        "possible": 19
+                    },
+                    "elective": {
+                        "earned": 3,
+                        "possible": 10
+                    },
+                    "badge": false,
+                    "dayPossible": 8,
+                    "dayEarned": 24
+          },
+                {
+                    "title": "Utah",
+                    "prep": {
+                        "earned": 4,
+                        "possible": 19
+                    },
+                    "elective": {
+                        "earned": 1,
+                        "possible": 10
+                    },
+                    "badge": true,
+                    "dayPossible": 18,
+                    "dayEarned": 24
+          },
+                {
+                    "title": "West Virginia",
+                    "prep": {
+                        "earned": 17,
+                        "possible": 19
+                    },
+                    "elective": {
+                        "earned": 3,
+                        "possible": 10
+                    },
+                    "badge": true,
+                    "dayPossible": 7,
+                    "dayEarned": 24
+          }
+        ]
+      },
+        {
+            "title": "Botswana",
+            "earnedBadge": false,
+            "unitPossible": 140,
+            "unitEarned": 20,
+            "days": [
+                {
+                    "title": "Northern Mariana Islands",
+                    "prep": {
+                        "earned": 14,
+                        "possible": 19
+                    },
+                    "elective": {
+                        "earned": 1,
                         "possible": 10
                     },
                     "badge": false,
@@ -280,7 +238,35 @@ var testCourse = {
                     "dayEarned": 24
           },
                 {
-                    "title": "Alaska",
+                    "title": "Maryland",
+                    "prep": {
+                        "earned": 8,
+                        "possible": 19
+                    },
+                    "elective": {
+                        "earned": 8,
+                        "possible": 10
+                    },
+                    "badge": true,
+                    "dayPossible": 11,
+                    "dayEarned": 24
+          },
+                {
+                    "title": "Rhode Island",
+                    "prep": {
+                        "earned": 12,
+                        "possible": 19
+                    },
+                    "elective": {
+                        "earned": 4,
+                        "possible": 10
+                    },
+                    "badge": true,
+                    "dayPossible": 6,
+                    "dayEarned": 24
+          },
+                {
+                    "title": "Massachusetts",
                     "prep": {
                         "earned": 6,
                         "possible": 19
@@ -290,17 +276,31 @@ var testCourse = {
                         "possible": 10
                     },
                     "badge": false,
-                    "dayPossible": 15,
+                    "dayPossible": 13,
                     "dayEarned": 24
           },
                 {
-                    "title": "Nevada",
+                    "title": "Tennessee",
                     "prep": {
-                        "earned": 18,
+                        "earned": 8,
                         "possible": 19
                     },
                     "elective": {
-                        "earned": 5,
+                        "earned": 9,
+                        "possible": 10
+                    },
+                    "badge": true,
+                    "dayPossible": 13,
+                    "dayEarned": 24
+          },
+                {
+                    "title": "Wisconsin",
+                    "prep": {
+                        "earned": 14,
+                        "possible": 19
+                    },
+                    "elective": {
+                        "earned": 3,
                         "possible": 10
                     },
                     "badge": true,
@@ -308,17 +308,17 @@ var testCourse = {
                     "dayEarned": 24
           },
                 {
-                    "title": "Florida",
+                    "title": "Mississippi",
                     "prep": {
                         "earned": 12,
                         "possible": 19
                     },
                     "elective": {
-                        "earned": 0,
+                        "earned": 9,
                         "possible": 10
                     },
-                    "badge": true,
-                    "dayPossible": 9,
+                    "badge": false,
+                    "dayPossible": 17,
                     "dayEarned": 24
           }
         ]
