@@ -1,29 +1,38 @@
-## Museum Gamefication Notes – Greer Galloway
+### Museum Gamefication Notes
 
+Guesses for the possible values in the course object:
+
+```javascript
 var testCourse = {
+
         "overall": {
-            "overallPossible":  data.getfinalCalculatedGrade().pointsDenominator//(add maxPoints?),
-            "overallEarned": data.getfinalCalculatedGrade().pointsNumerator,
-            "passingValue": percentage * overallPossible
+            "overallPossible": null, //data.getfinalCalculatedGrade().pointsDenominator
+            "overallEarned": null, //data.getfinalCalculatedGrade().pointsNumerator
+            "passingValue": null //percentage * overallPossible
         },
         "units": [
             {
-                "title": data.getCategories[i].catName,
-                "earnedBadge": (if requirements met set to true),
-                "unitPossible": (all cat maxPoints until next unit),
-                "unitEarned": (all cat earnedPoints until next unit),
+                "title": "", //data.getCategories[i].catName
+                "earnedBadge": null, //if requirements met set to true
+                "unitPossible": null, //all cat maxPoints until next unit
+                "unitEarned": null, //all cat earnedPoints until next unit
                 "days": [
                     {
-                        "title": data.getCategories[i].catName – ex: “unit 1 day1”
+                        "title": "", //data.getCategories[i].catName – ex: “unit 1 day1”
                         "prep": { //if grade name is prep
-                            "earned": data.getGrades[i].pointsNumerator,
-                            "possible": data.getGrades[i].maxPoints
+                            "earned": null, //data.getGrades[i].pointsNumerator
+                            "possible": null //data.getGrades[i].maxPoints
                         },
                         "elective": {//if grade name elective
-                            "earned": data.getGrades[i].pointsNumerator,
-                            "possible": data.getGrades[i].maxPoints
+                            "earned": null, //data.getGrades[i].pointsNumerator
+                            "possible": null, //data.getGrades[i].maxPoints
                         },
-                        "badge": (if requirements met set to true),
-                        "dayPossible": (maxPoints from elective and prep),
-                        "dayEarned": (pointsNumerator from elective and prep)
-          }, . . .   
+                        "badge": null, //(if requirements met set to true),
+                        "dayPossible": null, //(maxPoints from elective and prep),
+                        "dayEarned": null //(pointsNumerator from elective and prep)
+                    }, . . .   
+                    
+            }, . . .
+            
+}
+```
