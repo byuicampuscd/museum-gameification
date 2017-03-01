@@ -81,7 +81,7 @@ function makeUnitsArray(testCourse, data) {
  *       then makes an array of day objects.
  * inputs: 
  *       category: category object
- *       days: array of category objects
+ *       days: array of category objects last one is section 
  * outputs: unit object
  **********************************************************/
 function makeUnitObj(category, days) {
@@ -93,15 +93,23 @@ function makeUnitObj(category, days) {
     }
     
     //sums up the possible points
+    var up = dayObjs.reduce(function(sum, day) {
+     
+        return sum + day.daysPossible;     
+    })
     
     //sums up the earned points
+    var ue = dayObjs.reduce(function(sum, day) {
+     
+        return sum + day.daysEarned;     
+    })
 
     //make unit object
     return unit = {
         "title": category.catName,
         "earnedBadge": false,
-        "unitPossible": null,
-        "unitEarned": null, //not sure how to fill variable
+        "unitPossible": up,
+        "unitEarned": ue, 
         "days": dayObjs
     };
 }
