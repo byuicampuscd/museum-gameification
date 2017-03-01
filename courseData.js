@@ -4,6 +4,7 @@
 //mainish
 valence.run(function (err, data) {
     console.log("data:", data);
+    console.log("data:", data.getCategories());
 
     //error check and handle
     if (err) {
@@ -25,6 +26,8 @@ valence.run(function (err, data) {
 
 /**********************************************************
  * function: makeOverallObj
+ * desc: Makes overall object using values from the final 
+ *       grade object.
  * inputs: 
  *       testCourse: object
  *       data: object from valence
@@ -50,6 +53,8 @@ function makeOverallObj(testCourse, data) {
 
 /**********************************************************
  * function: makeUnitsArray
+ * desc: Makes an array of arrays where each subarray holds 
+ *       unit info and makes ar array of unit objects.
  * inputs: 
  *       testCourse: object
  *       data: object from valence
@@ -58,7 +63,7 @@ function makeOverallObj(testCourse, data) {
 function makeUnitsArray(testCourse, data) {
 
     var categories = data.getCategories();
-    var days = []; //categories that are days
+    var days = []; //need to break up into array of arrays
 
     //need to do for all units
     //make unit array
@@ -71,6 +76,8 @@ function makeUnitsArray(testCourse, data) {
 
 /**********************************************************
  * function: makeUnitObj
+ * desc: Sums up the possible points and the earned points 
+ *       then makes an array of day objects.
  * inputs: 
  *       category: category object
  *       days: array of category objects
@@ -78,32 +85,38 @@ function makeUnitsArray(testCourse, data) {
  **********************************************************/
 function makeUnitObj(category, days) {
 
-    //make days array
-    var daysArray = [];
-
-    //fill days array
+    //sums up the possible points
+    
+    //sums up the earned points
+    
+    //make dayObjs array
+    var dayObjs = [days.length];
     for (var i = 0; i < days.length; i++) {
-        daysArray[i] = makeDayObj(days[i]);
+        dayObjs[i] = makeDayObj(days[i]);
     }
 
-    //make unit
+    //make unit object
     return unit = {
         "title": category.catName,
         "earnedBadge": false,
-        "unitPossible": category.maxPoints,
+        "unitPossible": null,
         "unitEarned": null, //not sure how to fill variable
-        "days": daysArray
+        "days": dayObjs
     };
 }
 
 /**********************************************************
  * function: makeDayObj
+ * desc: Sums up preperations possible points and preperations 
+ *       earned points then uses subtraction to find electives 
+ *       points.
  * inputs: 
- *       category: category object
+ *       dayCat: category object
  * outputs: day object
  **********************************************************/
-function makeDayObj(category) {
+function makeDayObj(dayCat) {
 
+    //make day object
     return day = {
         "title": "Ohio",
         "prep": {
