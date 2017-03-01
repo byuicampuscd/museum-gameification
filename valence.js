@@ -56,6 +56,7 @@ var async = require('async'),                               // Used to make vale
         maxPoints: null,             // The maximum number of points allowed to earn in the category. *** HUH? ***
         excludeFromFinalGrade: null, // Do we exclude this item from the calculation of the final grade?
         shortName: "",               // The short name of the category
+        catGrades: [],                  // The array of grades for the given category
     
         /* Once a category has a grade, it too can have grade information */
         grade: null
@@ -372,6 +373,7 @@ function run(callback) {
                                         maxPoints: cat.MaxPoints || null,
                                         weight: cat.Weight || null,
                                         shortName: cat.ShortName || "",
+                                        catGrades: cat.Grades || [],
                                         grade: null
                                     };
                                 });
