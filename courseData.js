@@ -4,7 +4,8 @@
 //mainish
 valence.run(function (err, data) {
     console.log("data:", data);
-    console.log("data:", data.getCategories());
+    console.log("categories:", data.getCategories());
+    console.log("grades:", data.getGrades());
 
     //error check and handle
     if (err) {
@@ -84,16 +85,16 @@ function makeUnitsArray(testCourse, data) {
  * outputs: unit object
  **********************************************************/
 function makeUnitObj(category, days) {
-
-    //sums up the possible points
-    
-    //sums up the earned points
     
     //make dayObjs array
     var dayObjs = [days.length];
     for (var i = 0; i < days.length; i++) {
         dayObjs[i] = makeDayObj(days[i]);
     }
+    
+    //sums up the possible points
+    
+    //sums up the earned points
 
     //make unit object
     return unit = {
@@ -116,9 +117,35 @@ function makeUnitObj(category, days) {
  **********************************************************/
 function makeDayObj(dayCat) {
 
+    //add up all of preps points
+    
+    /*var po = dayCat.catGrades.reduce(function(sum, grade) {
+        
+        var points = {};
+        
+        if (grade.shortName[0] === "p") {
+            points.earned = sum + grade.pointsNumerator;
+            points.possible = sum + grade.pointsDenominator;
+        }       
+    })*/
+    
+     /*var pe = dayCat.catGrades.reduce(function(sum, grade) {
+     
+        if (grade.shortName[0] === "p") {
+            return = sum + grade.pointsNumerator;
+        }       
+    })
+    
+    var pp = dayCat.catGrades.reduce(function(sum, grade) {
+     
+        if (grade.shortName[0] === "p") {
+            return = sum + grade.pointsDenominator;
+        }       
+    })*/
+     
     //make day object
     return day = {
-        "title": "Ohio",
+        "title": dayCat.catName,
         "prep": {
             "earned": 5,
             "possible": 19
@@ -130,5 +157,5 @@ function makeDayObj(dayCat) {
         "badge": false,
         "dayPossible": 21,
         "dayEarned": 24
-    }
+    };
 }
