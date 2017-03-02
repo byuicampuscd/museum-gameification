@@ -1,0 +1,5 @@
+*.svg
+*.jpg
+node_modules/
+sketches/
+widget.html
