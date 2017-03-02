@@ -4,6 +4,8 @@
 //mainish
 valence.run(function (err, data) {
     console.log("data:", data);
+    console.log("categories:", data.getCategories());
+    console.log("grades:", data.getGrades());
 
     //error check and handle
     if (err) {
@@ -25,6 +27,8 @@ valence.run(function (err, data) {
 
 /**********************************************************
  * function: makeOverallObj
+ * desc: Makes overall object using values from the final 
+ *       grade object.
  * inputs: 
  *       testCourse: object
  *       data: object from valence
@@ -50,6 +54,8 @@ function makeOverallObj(testCourse, data) {
 
 /**********************************************************
  * function: makeUnitsArray
+ * desc: Makes an array of arrays where each subarray holds 
+ *       unit info and makes ar array of unit objects.
  * inputs: 
  *       testCourse: object
  *       data: object from valence
@@ -57,65 +63,124 @@ function makeOverallObj(testCourse, data) {
  **********************************************************/
 function makeUnitsArray(testCourse, data) {
 
-    var categories = data.getCategories();
-    var days = []; //categories that are days
+    var categories = data.getCategories(); 
+    var unitCats = [];
+    
+    for (var i = 0; i < 9; i++) {
+        unitCats[i] = categories.filter(function(cat) {
+            return cat.shortName === ((i + 1) + "");
+        })
+    }
 
-    //need to do for all units
     //make unit array
-    var unitArray = [makeUnitObj(categories[0], days)];
+    var unitObjs = [];
+    for (i = 0; i < unitCats.length; i++) {
+        unitObjs[i] = makeUnitObj(data, unitCats[i]);
+    }
 
     //set test courses units with made unit array
-    testCourse.units = unitArray;
+    testCourse.units = unitObjs;
 
 }
 
 /**********************************************************
  * function: makeUnitObj
+ * desc: Sums up the possible points and the earned points 
+ *       then makes an array of day objects.
  * inputs: 
  *       category: category object
- *       days: array of category objects
+ *       days: array of category objects last one is section 
  * outputs: unit object
  **********************************************************/
-function makeUnitObj(category, days) {
-
-    //make days array
-    var daysArray = [];
-
-    //fill days array
-    for (var i = 0; i < days.length; i++) {
-        daysArray[i] = makeDayObj(days[i]);
+function makeUnitObj(data, days) {
+    
+    //make dayObjs array
+    var dayObjs = [];
+    for (var i = 0; i < days.length - 1; i++) {
+        dayObjs[i] = makeDayObj(data, days[i]);
     }
+    
+    //make counter object
+    var counter = {};
+    
+    //sums up total unit points (not including overall section)
+    var totalUnitPoints = dayObjs.reduce(function(sum, day) {             
+        counter.earned = sum + day.daysEarned; 
+        counter.possible = sum + day.daysPossible;
+        return counter;
+    })
+    
+    //adds section overall points to total unit points
 
-    //make unit
+    //make unit object
     return unit = {
-        "title": category.catName,
+        "title": days[days.length - 1].catName,
         "earnedBadge": false,
-        "unitPossible": category.maxPoints,
-        "unitEarned": null, //not sure how to fill variable
-        "days": daysArray
+        "unitPossible": totalUnitPoints.possible,
+        "unitEarned": totalUnitPoints.earned, 
+        "days": dayObjs
     };
 }
 
 /**********************************************************
  * function: makeDayObj
+ * desc: Sums up preperations possible points and preperations 
+ *       earned points then uses subtraction to find electives 
+ *       points.
  * inputs: 
- *       category: category object
+ *       dayCat: category object
  * outputs: day object
  **********************************************************/
-function makeDayObj(category) {
+function makeDayObj(data, dayCat) {
 
+    //add up all of preps points
+    var grades = data.getGrades();
+    
+    //make counter object
+    var counter = {};
+    
+    //determine total day points
+    var totalDayPoints = grades.reduce(function(sum, grade) {
+        
+        if (grade.catID === dayCat.catID) {
+            counter.earned = sum.earned + grade.pointsNumerator;
+            counter.possible = sum.possible + grade.pointsDenominator;
+        }    
+        return counter;
+    });
+    
+    //reset counter
+    counter.earned = 0;
+    counter.possible = 0;
+    
+    //determine preps points
+    var prep = grades.reduce(function(sum, grade) {
+        
+        if (grade.catID === dayCat.catID && grade.shortName === "p") {
+            counter.earned = sum.earned + grade.pointsNumerator;
+            counter.possible = sum.possible + grade.pointsDenominator;
+        }    
+        return counter;
+    });
+    
+    //determine electives points
+    var elective = {};
+    elective.earned = totalDayPoints.earned - prep.earned;
+    elective.possible = totalDayPoints.possible - prep.possible;
+     
+    //make day object
     return day = {
-        "title": "Ohio",
+        "title": dayCat.catName,
         "prep": {
-            "earned": 5,
-            "possible": 19
+            "earned": prep.earned,
+            "possible": prep.possible
         },
         "elective": {
-            "earned": 0,
-            "possible": 10
+            "earned": elective.earned,
+            "possible": elective.possible
         },
         "badge": false,
-        "dayPossible": 21,
-        "dayEarned": 24
-    }
+        "dayPossible": totalDayPoints.possible,
+        "dayEarned": totalDayPoints.earned
+    };
 }
