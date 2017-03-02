@@ -63,15 +63,23 @@ function makeOverallObj(testCourse, data) {
  **********************************************************/
 function makeUnitsArray(testCourse, data) {
 
-    var categories = data.getCategories();
-    var days = []; //need to break up into array of arrays
+    var categories = data.getCategories(); 
+    var unitCats = [];
+    
+    for (var i = 0; i < 9; i++) {
+        unitCats[i] = categories.filter(function(cat) {
+            return cat.shortName === ((i + 1) + "");
+        })
+    }
 
-    //need to do for all units
     //make unit array
-    var unitArray = [makeUnitObj(categories[0], days)];
+    var unitObjs = [];
+    for (i = 0; i < unitCats.length; i++) {
+        unitObjs[i] = makeUnitObj(data, unitCats[i]);
+    }
 
     //set test courses units with made unit array
-    testCourse.units = unitArray;
+    testCourse.units = unitObjs;
 
 }
 
@@ -87,20 +95,22 @@ function makeUnitsArray(testCourse, data) {
 function makeUnitObj(data, days) {
     
     //make dayObjs array
-    var dayObjs = [days.length];
-    for (var i = 0; i < days.length; i++) {
+    var dayObjs = [];
+    for (var i = 0; i < days.length - 1; i++) {
         dayObjs[i] = makeDayObj(data, days[i]);
     }
     
     //make counter object
     var counter = {};
     
-    //sums up total unit points
+    //sums up total unit points (not including overall section)
     var totalUnitPoints = dayObjs.reduce(function(sum, day) {             
         counter.earned = sum + day.daysEarned; 
         counter.possible = sum + day.daysPossible;
         return counter;
     })
+    
+    //adds section overall points to total unit points
 
     //make unit object
     return unit = {
@@ -146,7 +156,7 @@ function makeDayObj(data, dayCat) {
     //determine preps points
     var prep = grades.reduce(function(sum, grade) {
         
-        if (grade.catID === dayCat.catID && grade.shortName[0] === "p") {
+        if (grade.catID === dayCat.catID && grade.shortName === "p") {
             counter.earned = sum.earned + grade.pointsNumerator;
             counter.possible = sum.possible + grade.pointsDenominator;
         }    
