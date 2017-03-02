@@ -84,32 +84,30 @@ function makeUnitsArray(testCourse, data) {
  *       days: array of category objects last one is section 
  * outputs: unit object
  **********************************************************/
-function makeUnitObj(category, days) {
+function makeUnitObj(data, days) {
     
     //make dayObjs array
     var dayObjs = [days.length];
     for (var i = 0; i < days.length; i++) {
-        dayObjs[i] = makeDayObj(days[i]);
+        dayObjs[i] = makeDayObj(data, days[i]);
     }
     
-    //sums up the possible points
-    var up = dayObjs.reduce(function(sum, day) {
-     
-        return sum + day.daysPossible;     
-    })
+    //make counter object
+    var counter = {};
     
-    //sums up the earned points
-    var ue = dayObjs.reduce(function(sum, day) {
-     
-        return sum + day.daysEarned;     
+    //sums up total unit points
+    var totalUnitPoints = dayObjs.reduce(function(sum, day) {             
+        counter.earned = sum + day.daysEarned; 
+        counter.possible = sum + day.daysPossible;
+        return counter;
     })
 
     //make unit object
     return unit = {
-        "title": category.catName,
+        "title": days[days.length - 1].catName,
         "earnedBadge": false,
-        "unitPossible": up,
-        "unitEarned": ue, 
+        "unitPossible": totalUnitPoints.possible,
+        "unitEarned": totalUnitPoints.earned, 
         "days": dayObjs
     };
 }
@@ -123,47 +121,56 @@ function makeUnitObj(category, days) {
  *       dayCat: category object
  * outputs: day object
  **********************************************************/
-function makeDayObj(dayCat) {
+function makeDayObj(data, dayCat) {
 
     //add up all of preps points
+    var grades = data.getGrades();
     
-    /*var po = dayCat.catGrades.reduce(function(sum, grade) {
+    //make counter object
+    var counter = {};
+    
+    //determine total day points
+    var totalDayPoints = grades.reduce(function(sum, grade) {
         
-        var points = {};
+        if (grade.catID === dayCat.catID) {
+            counter.earned = sum.earned + grade.pointsNumerator;
+            counter.possible = sum.possible + grade.pointsDenominator;
+        }    
+        return counter;
+    });
+    
+    //reset counter
+    counter.earned = 0;
+    counter.possible = 0;
+    
+    //determine preps points
+    var prep = grades.reduce(function(sum, grade) {
         
-        if (grade.shortName[0] === "p") {
-            points.earned = sum + grade.pointsNumerator;
-            points.possible = sum + grade.pointsDenominator;
-        }       
-    })*/
+        if (grade.catID === dayCat.catID && grade.shortName[0] === "p") {
+            counter.earned = sum.earned + grade.pointsNumerator;
+            counter.possible = sum.possible + grade.pointsDenominator;
+        }    
+        return counter;
+    });
     
-     /*var pe = dayCat.catGrades.reduce(function(sum, grade) {
-     
-        if (grade.shortName[0] === "p") {
-            return = sum + grade.pointsNumerator;
-        }       
-    })
-    
-    var pp = dayCat.catGrades.reduce(function(sum, grade) {
-     
-        if (grade.shortName[0] === "p") {
-            return = sum + grade.pointsDenominator;
-        }       
-    })*/
+    //determine electives points
+    var elective = {};
+    elective.earned = totalDayPoints.earned - prep.earned;
+    elective.possible = totalDayPoints.possible - prep.possible;
      
     //make day object
     return day = {
         "title": dayCat.catName,
         "prep": {
-            "earned": 5,
-            "possible": 19
+            "earned": prep.earned,
+            "possible": prep.possible
         },
         "elective": {
-            "earned": 0,
-            "possible": 10
+            "earned": elective.earned,
+            "possible": elective.possible
         },
         "badge": false,
-        "dayPossible": 21,
-        "dayEarned": 24
+        "dayPossible": totalDayPoints.possible,
+        "dayEarned": totalDayPoints.earned
     };
 }
