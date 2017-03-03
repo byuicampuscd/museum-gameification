@@ -8,6 +8,7 @@
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
         "compileOverall": "handlebars overall.handlebars -f overall.js",
+        "compileWidget": "handlebars widget.handlebars -f widget.js",
         "compileUnit": "handlebars unit.handlebars -f unit.js",
         "compileDay": "handlebars day.handlebars -f day.js"
     },

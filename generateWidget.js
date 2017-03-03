@@ -13,4 +13,4 @@ var overallContext = {
 };
 
 //append pre-compiled template to i#gamificationWidget
-$('#gamificationWidget').append(Handlebars.templates.overall(overallContext));
+$('#gamificationWidget').append(Handlebars.templates.widget(overallContext));
