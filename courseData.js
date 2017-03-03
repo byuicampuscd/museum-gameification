@@ -64,8 +64,7 @@ function makeUnitsArray(testCourse, data) {
 
     var categories = data.getCategories(); 
     var unitCats = [];
-    
-    
+        
     for (var i = 0; i < 3; i++) {
         unitCats.push(categories.filter(function(cat) {
             return cat.shortName.substr(1, 1) === ((i + 1) + "");
@@ -77,8 +76,6 @@ function makeUnitsArray(testCourse, data) {
     for (i = 0; i < unitCats.length; i++) {
         unitObjs.push(makeUnitObj(data, unitCats[i]));
     }
-    
-    console.log("unit objs: " + unitObjs);
 
     //set test courses units with made unit array
     testCourse.units = unitObjs;
@@ -96,19 +93,30 @@ function makeUnitsArray(testCourse, data) {
  **********************************************************/
 function makeUnitObj(data, days) {
     
+     //make grades array
+    var grades = data.getGrades();
+    
     //make dayObjs array
     var dayObjs = [];
-    for (var i = 0; i < days.length - 1; i++) {
-        dayObjs.push(makeDayObj(data, days[i]));
+    var unitHead = {};
+    
+    for (var i = 0; i < days.length; i++) {
+        if (days[i].shortName.substr(2, 2) !== "o") {
+            dayObjs.push(makeDayObj(data, days[i]));
+        } else {
+            unitHead = days[i];
+        }
     }
     
+    console.log("unit Head:", unitHead);
+      
     console.log("dayObjs:", dayObjs);
     console.log("de:", dayObjs[0].dayEarned);
     console.log("dp:", dayObjs[0].dayPossible);
     
-    //sums up total unit points (including overall section)
+    //sums up unit points (not including overall section)
     var sumsTemplate = {unitEarned: 0, unitPoss: 0};
-    var sums = dayObjs.reduce(function(totals, day) {     
+    var unitSums = dayObjs.reduce(function(totals, day) {     
       
         totals.unitEarned += day.dayEarned;
         totals.unitPoss += day.dayPossible;
@@ -116,13 +124,29 @@ function makeUnitObj(data, days) {
         return totals;
         
     }, sumsTemplate);
+
+    //sums up all points from the unit head
+    sumsTemplate = {unitHeadEarned: 0, unitHeadPoss: 0};
+    var unitHeadSums = grades.reduce(function(totals, grade) {     
+      
+        if (grade.catID === unitHead.catID) {
+            totals.unitHeadEarned += grade.pointsNumerator;
+            totals.unitHeadPoss += grade.maxPoints;
+        }
+        return totals;
+        
+    }, sumsTemplate);
+    
+    //adds together unit and unit head points to make the total unit points
+    var unitPoss = unitHeadSums.unitHeadPoss + unitSums.unitPoss;
+    var unitEarned = unitHeadSums.unitHeadEarned + unitSums.unitEarned;
     
     //make unit object
     return {
-        "title": days[days.length - 1].catName,
+        "title": unitHead.catName,
         "earnedBadge": false,
-        "unitPossible": sums.unitPoss,
-        "unitEarned": sums.unitEarned, 
+        "unitPossible": unitPoss,
+        "unitEarned": unitEarned, 
         "days": dayObjs
     };
 }
