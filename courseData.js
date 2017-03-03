@@ -1,6 +1,6 @@
 /*eslint-env node*/
 /*eslint no-console:0*/
-
+/*global valence*/
 //mainish
 valence.run(function (err, data) {
     console.log("data:", data);
@@ -38,7 +38,6 @@ function makeOverallObj(testCourse, data) {
 
     //make overall variables
     var op = data.getFinalCalculatedGrade().pointsDenominator;
-    console.log("Final grade:", data.getFinalCalculatedGrade());
 
     var oe = data.getFinalCalculatedGrade().pointsNumerator;
 
@@ -66,17 +65,20 @@ function makeUnitsArray(testCourse, data) {
     var categories = data.getCategories(); 
     var unitCats = [];
     
-    for (var i = 0; i < 9; i++) {
-        unitCats[i] = categories.filter(function(cat) {
-            return cat.shortName === ((i + 1) + "");
-        })
+    
+    for (var i = 0; i < 3; i++) {
+        unitCats.push(categories.filter(function(cat) {
+            return cat.shortName.substr(1, 1) === ((i + 1) + "");
+        }));
     }
 
     //make unit array
     var unitObjs = [];
     for (i = 0; i < unitCats.length; i++) {
-        unitObjs[i] = makeUnitObj(data, unitCats[i]);
+        unitObjs.push(makeUnitObj(data, unitCats[i]));
     }
+    
+    console.log("unit objs: " + unitObjs);
 
     //set test courses units with made unit array
     testCourse.units = unitObjs;
@@ -97,27 +99,30 @@ function makeUnitObj(data, days) {
     //make dayObjs array
     var dayObjs = [];
     for (var i = 0; i < days.length - 1; i++) {
-        dayObjs[i] = makeDayObj(data, days[i]);
+        dayObjs.push(makeDayObj(data, days[i]));
     }
     
-    //make counter object
-    var counter = {};
+    console.log("dayObjs:", dayObjs);
+    console.log("de:", dayObjs[0].dayEarned);
+    console.log("dp:", dayObjs[0].dayPossible);
     
-    //sums up total unit points (not including overall section)
-    var totalUnitPoints = dayObjs.reduce(function(sum, day) {             
-        counter.earned = sum + day.daysEarned; 
-        counter.possible = sum + day.daysPossible;
-        return counter;
-    })
+    //sums up total unit points (including overall section)
+    var sumsTemplate = {unitEarned: 0, unitPoss: 0};
+    var sums = dayObjs.reduce(function(totals, day) {     
+      
+        totals.unitEarned += day.dayEarned;
+        totals.unitPoss += day.dayPossible;
+        
+        return totals;
+        
+    }, sumsTemplate);
     
-    //adds section overall points to total unit points
-
     //make unit object
-    return unit = {
+    return {
         "title": days[days.length - 1].catName,
         "earnedBadge": false,
-        "unitPossible": totalUnitPoints.possible,
-        "unitEarned": totalUnitPoints.earned, 
+        "unitPossible": sums.unitPoss,
+        "unitEarned": sums.unitEarned, 
         "days": dayObjs
     };
 }
@@ -133,54 +138,40 @@ function makeUnitObj(data, days) {
  **********************************************************/
 function makeDayObj(data, dayCat) {
 
-    //add up all of preps points
+    //make grades array
     var grades = data.getGrades();
     
-    //make counter object
-    var counter = {};
-    
-    //determine total day points
-    var totalDayPoints = grades.reduce(function(sum, grade) {
-        
+    //determine values for prepEarned, prepPoss, totalEarned, and totalPoss 
+    var sumsTemplate = {prepEarned: 0, prepPoss: 0, totalEarned: 0, totalPoss: 0};
+    var sums = grades.reduce(function(totals, grade) {     
         if (grade.catID === dayCat.catID) {
-            counter.earned = sum.earned + grade.pointsNumerator;
-            counter.possible = sum.possible + grade.pointsDenominator;
-        }    
-        return counter;
-    });
-    
-    //reset counter
-    counter.earned = 0;
-    counter.possible = 0;
-    
-    //determine preps points
-    var prep = grades.reduce(function(sum, grade) {
-        
-        if (grade.catID === dayCat.catID && grade.shortName === "p") {
-            counter.earned = sum.earned + grade.pointsNumerator;
-            counter.possible = sum.possible + grade.pointsDenominator;
-        }    
-        return counter;
-    });
-    
-    //determine electives points
-    var elective = {};
-    elective.earned = totalDayPoints.earned - prep.earned;
-    elective.possible = totalDayPoints.possible - prep.possible;
+            totals.totalEarned += grade.pointsNumerator;
+            totals.totalPoss += grade.maxPoints;
+        }  
+        if (grade.catID === dayCat.catID && grade.gradeShortName === "p") {
+            totals.prepEarned += grade.pointsNumerator;
+            totals.prepPoss += grade.maxPoints;
+        }
+        return totals;
+    }, sumsTemplate);
+  
+    //determine values for electiveEarned and electivePoss
+    var electiveEarned = sums.totalEarned - sums.prepEarned;
+    var electivePoss = sums.totalPoss - sums.prepPoss;
      
     //make day object
-    return day = {
+    return {
         "title": dayCat.catName,
         "prep": {
-            "earned": prep.earned,
-            "possible": prep.possible
+            "earned": sums.prepEarned,
+            "possible": sums.prepPoss
         },
         "elective": {
-            "earned": elective.earned,
-            "possible": elective.possible
+            "earned": electiveEarned,
+            "possible": electivePoss
         },
         "badge": false,
-        "dayPossible": totalDayPoints.possible,
-        "dayEarned": totalDayPoints.earned
+        "dayPossible": sums.totalPoss,
+        "dayEarned": sums.totalEarned
     };
 }
