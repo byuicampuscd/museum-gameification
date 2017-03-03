@@ -1,5 +1,4 @@
-*.svg
 *.jpg
+todo2.svg
 node_modules/
 sketches/
-widget.html

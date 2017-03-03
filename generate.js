@@ -2,16 +2,6 @@
 /*eslint no-console:0*/
 console.log(testCourse);
 
-// pull in the templates
-var overallTemplate = $('#overall').html(),
-    unitTemplate = $('#unit').html(),
-    dayTemplate = $('#day').html();
-
-
-// compile templates
-var overallScript = Handlebars.compile(overallTemplate),
-    unitScript = Handlebars.compile(unitTemplate),
-    dayScript = Handlebars.compile(dayTemplate);
 
 // declare & set context objects
 var overallContext = {
@@ -24,13 +14,9 @@ var overallContext = {
     unitContext = {},
     dayContext = [];
 
-// not really sure what this does.... don't touch it
-var overallC = overallScript(overallContext),
-    unitC,
-    dayC;
 
 // append overall section to #gamificationMuseum
-$('#gamificationMuseum').append(overallC);
+$('#gamificationMuseum').append(Handlebars.templates.overall(overallContext));
 
 // loop through the units
 testCourse.units.forEach(function (unit, i) {
@@ -46,8 +32,7 @@ testCourse.units.forEach(function (unit, i) {
     }
 
 
-    unitC = unitScript(unitContext);
-    $('#gamificationMuseum').append(unitC);
+    $('#gamificationMuseum').append(Handlebars.templates.unit(unitContext));
 
 
     // loop through days
@@ -69,8 +54,7 @@ testCourse.units.forEach(function (unit, i) {
         if (day.badge) {
             dayContext.badge = 1;
         }
-        dayC = dayScript(dayContext);
-        $('#gamificationMuseum').append(dayC);
+        $('#gamificationMuseum').append(Handlebars.templates.day(dayContext));
     })
 
 })

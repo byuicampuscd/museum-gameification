@@ -1,0 +1,24 @@
+{
+    "name": "barker-gamify",
+    "version": "1.0.0",
+    "description": "",
+    "main": "widget.html",
+    "dependencies": {},
+    "devDependencies": {},
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "compileOverall": "handlebars overall.handlebars -f overall.js",
+        "compileUnit": "handlebars unit.handlebars -f unit.js",
+        "compileDay": "handlebars day.handlebars -f day.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/byuitechops/museum-gamification.git"
+    },
+    "author": "Daniel Green",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/byuitechops/museum-gamification/issues"
+    },
+    "homepage": "https://github.com/byuitechops/museum-gamification#readme"
+}
