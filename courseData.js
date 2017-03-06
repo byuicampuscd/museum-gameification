@@ -2,7 +2,6 @@
 /*eslint no-console:0*/
 /*global valence*/
 //mainish
-
 valence.run(function (err, data) {
 
     //error check and handle
@@ -19,7 +18,6 @@ valence.run(function (err, data) {
         makeUnitsArray(testCourse, data);
 
         console.log("Test course:", testCourse);
-
 
         try {
             generateWidget(testCourse);
@@ -57,7 +55,7 @@ function makeOverallObj(testCourse, data) {
     testCourse.overall = {
         "overallPossible": op,
         "overallEarned": oe,
-        "passingValue": Math.round(passingGradePercentage * op)
+        "passingValue": passingGradePercentage * op
     };
 }
 
@@ -71,10 +69,20 @@ function makeOverallObj(testCourse, data) {
  * outputs: none
  **********************************************************/
 function makeUnitsArray(testCourse, data) {
+
     var categories = data.getCategories();
     var unitCats = [];
+    var unitNum = 0;
 
-    for (var i = 0; i < 3; i++) {
+    //finds number of units
+    for (var i = 0; i < categories.length; i++) {
+        if (categories[i].shortName.substr(2, 2) === "o") {
+            unitNum++;
+        }
+    }
+
+    //makes array of arrays where each subarray holds the categories for a unit 
+    for (i = 0; i < unitNum; i++) {
         unitCats.push(categories.filter(function (cat) {
             return cat.shortName.substr(1, 1) === ((i + 1) + "");
         }));
