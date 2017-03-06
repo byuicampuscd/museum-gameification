@@ -1,0 +1,327 @@
+var testCourse = {
+    "overall": {
+        "overallPossible": 1000,
+        "overallEarned": 696,
+        "passingValue": 700
+    },
+    "units": [
+        {
+            "title": "Saudi Arabia",
+            "earnedBadge": true,
+            "unitPossible": 140,
+            "unitEarned": 118,
+            "days": [
+                {
+                    "title": "Maine",
+                    "prep": {
+                        "earned": 6,
+                        "possible": 19
+                    },
+                    "elective": {
+                        "earned": 0,
+                        "possible": 10
+                    },
+                    "badge": false,
+                    "dayPossible": 8,
+                    "dayEarned": 24
+          },
+                {
+                    "title": "Delaware",
+                    "prep": {
+                        "earned": 9,
+                        "possible": 19
+                    },
+                    "elective": {
+                        "earned": 5,
+                        "possible": 10
+                    },
+                    "badge": false,
+                    "dayPossible": 2,
+                    "dayEarned": 24
+          },
+                {
+                    "title": "Indiana",
+                    "prep": {
+                        "earned": 12,
+                        "possible": 19
+                    },
+                    "elective": {
+                        "earned": 10,
+                        "possible": 10
+                    },
+                    "badge": true,
+                    "dayPossible": 24,
+                    "dayEarned": 24
+          },
+                {
+                    "title": "Guam",
+                    "prep": {
+                        "earned": 1,
+                        "possible": 19
+                    },
+                    "elective": {
+                        "earned": 4,
+                        "possible": 10
+                    },
+                    "badge": true,
+                    "dayPossible": 13,
+                    "dayEarned": 24
+          },
+                {
+                    "title": "Puerto Rico",
+                    "prep": {
+                        "earned": 19,
+                        "possible": 19
+                    },
+                    "elective": {
+                        "earned": 7,
+                        "possible": 10
+                    },
+                    "badge": false,
+                    "dayPossible": 7,
+                    "dayEarned": 24
+          },
+                {
+                    "title": "Washington",
+                    "prep": {
+                        "earned": 5,
+                        "possible": 19
+                    },
+                    "elective": {
+                        "earned": 1,
+                        "possible": 10
+                    },
+                    "badge": true,
+                    "dayPossible": 12,
+                    "dayEarned": 24
+          },
+                {
+                    "title": "Alaska",
+                    "prep": {
+                        "earned": 18,
+                        "possible": 19
+                    },
+                    "elective": {
+                        "earned": 6,
+                        "possible": 10
+                    },
+                    "badge": true,
+                    "dayPossible": 3,
+                    "dayEarned": 24
+          }
+        ]
+      },
+        {
+            "title": "Afghanistan",
+            "earnedBadge": false,
+            "unitPossible": 140,
+            "unitEarned": 21,
+            "days": [
+                {
+                    "title": "Georgia",
+                    "prep": {
+                        "earned": 3,
+                        "possible": 19
+                    },
+                    "elective": {
+                        "earned": 6,
+                        "possible": 10
+                    },
+                    "badge": true,
+                    "dayPossible": 22,
+                    "dayEarned": 24
+          },
+                {
+                    "title": "Virgin Islands",
+                    "prep": {
+                        "earned": 13,
+                        "possible": 19
+                    },
+                    "elective": {
+                        "earned": 5,
+                        "possible": 10
+                    },
+                    "badge": true,
+                    "dayPossible": 22,
+                    "dayEarned": 24
+          },
+                {
+                    "title": "Palau",
+                    "prep": {
+                        "earned": 9,
+                        "possible": 19
+                    },
+                    "elective": {
+                        "earned": 1,
+                        "possible": 10
+                    },
+                    "badge": true,
+                    "dayPossible": 7,
+                    "dayEarned": 24
+          },
+                {
+                    "title": "Minnesota",
+                    "prep": {
+                        "earned": 6,
+                        "possible": 19
+                    },
+                    "elective": {
+                        "earned": 8,
+                        "possible": 10
+                    },
+                    "badge": false,
+                    "dayPossible": 16,
+                    "dayEarned": 24
+          },
+                {
+                    "title": "Florida",
+                    "prep": {
+                        "earned": 9,
+                        "possible": 19
+                    },
+                    "elective": {
+                        "earned": 3,
+                        "possible": 10
+                    },
+                    "badge": false,
+                    "dayPossible": 8,
+                    "dayEarned": 24
+          },
+                {
+                    "title": "Utah",
+                    "prep": {
+                        "earned": 4,
+                        "possible": 19
+                    },
+                    "elective": {
+                        "earned": 1,
+                        "possible": 10
+                    },
+                    "badge": true,
+                    "dayPossible": 18,
+                    "dayEarned": 24
+          },
+                {
+                    "title": "West Virginia",
+                    "prep": {
+                        "earned": 17,
+                        "possible": 19
+                    },
+                    "elective": {
+                        "earned": 3,
+                        "possible": 10
+                    },
+                    "badge": true,
+                    "dayPossible": 7,
+                    "dayEarned": 24
+          }
+        ]
+      },
+        {
+            "title": "Botswana",
+            "earnedBadge": false,
+            "unitPossible": 140,
+            "unitEarned": 20,
+            "days": [
+                {
+                    "title": "Northern Mariana Islands",
+                    "prep": {
+                        "earned": 14,
+                        "possible": 19
+                    },
+                    "elective": {
+                        "earned": 1,
+                        "possible": 10
+                    },
+                    "badge": false,
+                    "dayPossible": 13,
+                    "dayEarned": 24
+          },
+                {
+                    "title": "Maryland",
+                    "prep": {
+                        "earned": 8,
+                        "possible": 19
+                    },
+                    "elective": {
+                        "earned": 8,
+                        "possible": 10
+                    },
+                    "badge": true,
+                    "dayPossible": 11,
+                    "dayEarned": 24
+          },
+                {
+                    "title": "Rhode Island",
+                    "prep": {
+                        "earned": 12,
+                        "possible": 19
+                    },
+                    "elective": {
+                        "earned": 4,
+                        "possible": 10
+                    },
+                    "badge": true,
+                    "dayPossible": 6,
+                    "dayEarned": 24
+          },
+                {
+                    "title": "Massachusetts",
+                    "prep": {
+                        "earned": 6,
+                        "possible": 19
+                    },
+                    "elective": {
+                        "earned": 7,
+                        "possible": 10
+                    },
+                    "badge": false,
+                    "dayPossible": 13,
+                    "dayEarned": 24
+          },
+                {
+                    "title": "Tennessee",
+                    "prep": {
+                        "earned": 8,
+                        "possible": 19
+                    },
+                    "elective": {
+                        "earned": 9,
+                        "possible": 10
+                    },
+                    "badge": true,
+                    "dayPossible": 13,
+                    "dayEarned": 24
+          },
+                {
+                    "title": "Wisconsin",
+                    "prep": {
+                        "earned": 14,
+                        "possible": 19
+                    },
+                    "elective": {
+                        "earned": 3,
+                        "possible": 10
+                    },
+                    "badge": true,
+                    "dayPossible": 18,
+                    "dayEarned": 24
+          },
+                {
+                    "title": "Mississippi",
+                    "prep": {
+                        "earned": 12,
+                        "possible": 19
+                    },
+                    "elective": {
+                        "earned": 9,
+                        "possible": 10
+                    },
+                    "badge": false,
+                    "dayPossible": 17,
+                    "dayEarned": 24
+          }
+        ]
+      }
+    ]
+}
