@@ -61,8 +61,17 @@ function makeUnitsArray(testCourse, data) {
 
     var categories = data.getCategories(); 
     var unitCats = [];
-        
-    for (var i = 0; i < 3; i++) {
+    var unitNum = 0;
+    
+    //finds number of units
+    for (var i = 0; i < categories.length; i++) {
+        if (categories[i].shortName.substr(2, 2) === "o" ) {
+            unitNum++;
+        }
+    }
+    
+    //makes array of arrays where each subarray holds the categories for a unit 
+    for (i = 0; i < unitNum; i++) {
         unitCats.push(categories.filter(function(cat) {
             return cat.shortName.substr(1, 1) === ((i + 1) + "");
         }));
