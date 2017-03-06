@@ -93,8 +93,12 @@ function makeUnitsArray(testCourse, data) {
  **********************************************************/
 function makeUnitObj(data, days) {
     
-     //make grades array
+    //make grades array
     var grades = data.getGrades();
+    
+    //vars to help determine badge
+    var badgeGrade = {};
+    var passPercent = .7;
     
     //make dayObjs array
     var dayObjs = [];
@@ -119,22 +123,25 @@ function makeUnitObj(data, days) {
     var unitSums = dayObjs.reduce(function(totals, day) {     
       
         totals.unitEarned += day.dayEarned;
-        totals.unitPoss += day.dayPossible;
-        
-        return totals;
-        
+        totals.unitPoss += day.dayPossible; 
+        return totals;    
     }, sumsTemplate);
 
     //sums up all points from the unit head
     sumsTemplate = {unitHeadEarned: 0, unitHeadPoss: 0};
     var unitHeadSums = grades.reduce(function(totals, grade) {     
       
+        //grade is in unit head
         if (grade.catID === unitHead.catID) {
             totals.unitHeadEarned += grade.pointsNumerator;
             totals.unitHeadPoss += grade.maxPoints;
+            
+            //if that grade is a pass-off/badge determining grade 
+            if(grade.gradeShortName === "pass-off") {
+                badgeGrade = grade;
+            }
         }
-        return totals;
-        
+        return totals;    
     }, sumsTemplate);
     
     //adds together unit and unit head points to make the total unit points
@@ -144,7 +151,7 @@ function makeUnitObj(data, days) {
     //make unit object
     return {
         "title": unitHead.catName,
-        "earnedBadge": false,
+        "earnedBadge": (badgeGrade.pointsNumerator >= (badgeGrade.maxPoints * passPercent)),
         "unitPossible": unitPoss,
         "unitEarned": unitEarned, 
         "days": dayObjs
@@ -165,17 +172,30 @@ function makeDayObj(data, dayCat) {
     //make grades array
     var grades = data.getGrades();
     
+    //vars to help determine badge
+    var badgeGrade = {};
+    var passPercent = .7;
+    
     //determine values for prepEarned, prepPoss, totalEarned, and totalPoss 
     var sumsTemplate = {prepEarned: 0, prepPoss: 0, totalEarned: 0, totalPoss: 0};
-    var sums = grades.reduce(function(totals, grade) {     
+    var sums = grades.reduce(function(totals, grade) {
+        
+        //if grade is in the passed cat
         if (grade.catID === dayCat.catID) {
             totals.totalEarned += grade.pointsNumerator;
             totals.totalPoss += grade.maxPoints;
-        }  
-        if (grade.catID === dayCat.catID && grade.gradeShortName === "p") {
-            totals.prepEarned += grade.pointsNumerator;
-            totals.prepPoss += grade.maxPoints;
-        }
+            
+            //if that grade is a prep grade
+            if (grade.gradeShortName.substr(0, 0) === "p") {
+                totals.prepEarned += grade.pointsNumerator;
+                totals.prepPoss += grade.maxPoints;
+            }
+            
+            //if that grade is a pass-off/badge determining grade
+            if (grade.gradeShortName.substr(2) === "pass-off") {
+                badgeGrade = grade;
+            }
+        }        
         return totals;
     }, sumsTemplate);
   
@@ -194,7 +214,7 @@ function makeDayObj(data, dayCat) {
             "earned": electiveEarned,
             "possible": electivePoss
         },
-        "badge": false,
+        "badge": (badgeGrade.pointsNumerator >= (badgeGrade.maxPoints * passPercent)),
         "dayPossible": sums.totalPoss,
         "dayEarned": sums.totalEarned
     };
