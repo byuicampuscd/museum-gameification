@@ -1,6 +1,6 @@
 /*eslint-env jquery*/
 /*eslint no-console:0*/
-console.log(testCourse);
+//console.log(testCourse);
 
 
 // declare & set context objects

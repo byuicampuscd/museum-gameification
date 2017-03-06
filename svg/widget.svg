@@ -1,69 +1,67 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
-<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="304 281.7 1220 231.3" style="enable-background:new 304 281.7 1220 231.3;" xml:space="preserve">
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="304 281.7 1220 231.3" style="enable-background:new 304 281.7 1220 231.3;" xml:space="preserve">
 <style type="text/css">
-    @import url('https://fonts.googleapis.com/css?family=Roboto:900');
-	.st0w{fill:#E9E6D9;}
-	.st1w{fill:#CDCBBF;}
-	.st2w{fill:none;stroke:#CDCBBF;stroke-width:4;stroke-miterlimit:10;}
-	.st3w{fill:#30302F;}
-	.st4w{font-family:'Roboto';}
-	.st5w{font-size:13.5px;}
-	.st6w{font-size:31px;}
-	.st7w{fill:#2F2F2F;}
-	.st8w{font-size:30.6015px;}
-	.st9w{fill:#40B771;}
-	.st10w{font-size:22.2484px;}
-	.st11w{fill:#E8E5D9;}
-	.st12w{fill:none;stroke:#2F2F2F;stroke-width:3.415;stroke-miterlimit:10;}
-	.st13w{fill:#E9E6D9;stroke:#30302F;stroke-miterlimit:10;}
-	.st14w{font-family:'Roboto';}
-	.st15w{font-size:12px;}
+	.st0{fill:#E9E6D9;}
+	.st1{fill:#CDCBBF;}
+	.st2{fill:none;stroke:#CDCBBF;stroke-width:4;stroke-miterlimit:10;}
+	.st3{fill:#30302F;}
+	.st4{font-family:'Roboto-Regular';}
+	.st5{font-size:13.5px;}
+	.st6{font-size:31px;}
+	.st7{fill:#2F2F2F;}
+	.st8{font-size:30.6015px;}
+	.st9{fill:#40B771;}
+	.st10{font-size:22.2484px;}
+	.st11{fill:#E8E5D9;}
+	.st12{fill:none;stroke:#2F2F2F;stroke-width:3.415;stroke-miterlimit:10;}
+	.st13{fill:#E9E6D9;stroke:#30302F;stroke-miterlimit:10;}
 </style>
 <g id="Layer_1_1_">
-	<rect id="background" x="304" y="281.6" class="st0w" width="1220" height="231.4"/>
+	<rect id="background" x="304" y="281.7" class="st0" width="1220" height="231.4"/>
 	<g id="overall_1_">
-		<rect x="333.1" y="281.7" class="st0w" width="1162.7" height="230.8"/>
+		<rect x="333.1" y="281.8" class="st0" width="1162.7" height="230.8"/>
 		<g>
 			<g>
-				<path class="st1w" d="M1477.9,285.6v13.8v195.8V509h-7.8H351.7h-7.8v-13.8V299.4v-13.8h7.8h1118.4H1477.9 M1481.9,281.6h-4h-7.8
-					H351.7h-7.8h-4v4v13.8v195.8V509v4h4h7.8h1118.4h7.8h4v-4v-13.8V299.4v-13.8V281.6L1481.9,281.6z"/>
+				<path class="st1" d="M1477.9,285.7v13.8v195.8v13.8h-7.8H351.7h-7.8v-13.8V299.5v-13.8h7.8h1118.4H1477.9 M1481.9,281.7h-4h-7.8
+					H351.7h-7.8h-4v4v13.8v195.8v13.8v4h4h7.8h1118.4h7.8h4v-4v-13.8V299.5v-13.8L1481.9,281.7L1481.9,281.7z"/>
 			</g>
 		</g>
-		<line class="st2w" x1="332.6" y1="283.5" x2="332.6" y2="513"/>
-		<line class="st2w" x1="1494.2" y1="284.3" x2="1494.2" y2="512.5"/>
+		<line class="st2" x1="332.6" y1="283.6" x2="332.6" y2="513.1"/>
+		<line class="st2" x1="1494.2" y1="284.4" x2="1494.2" y2="512.6"/>
 		<g id="title_1_">
-			<text transform="matrix(0.9222 0 0 1 394.9609 343.9734)" class="st3w st4w st5w">Modern Arts and Propaganda</text>
-			<text transform="matrix(0.83 0 0 1 394.9604 330.5413)" class="st3w st4w st6w">FDHUM 214</text>
+			<text transform="matrix(0.9222 0 0 1 394.961 344.0237)" class="st3 st4 st5">Modern Arts and Propaganda</text>
+			<text transform="matrix(0.83 0 0 1 394.9609 330.5915)" class="st3 st4 st6">FDHUM 214</text>
 		</g>
 		<g>
 			<g>
-				<path class="st7w" d="M1432,409.5v3.4v47.8v3.4h-7.2H396.1h-7.2v-3.4v-47.8v-3.4h7.2h1028.7H1432 M1435.4,406.1h-3.4h-7.2H396.1
-					h-7.2h-3.4v3.4v3.4v47.8v3.4v3.4h3.4h7.2h1028.7h7.2h3.4v-3.4v-3.4v-47.8v-3.4L1435.4,406.1L1435.4,406.1z"/>
+				<path class="st7" d="M1432,409.6v3.4v47.8v3.4h-7.2H396.1h-7.2v-3.4V413v-3.4h7.2h1028.7H1432 M1435.4,406.2h-3.4h-7.2H396.1
+					h-7.2h-3.4v3.4v3.4v47.8v3.4v3.4h3.4h7.2h1028.7h7.2h3.4v-3.4v-3.4V413v-3.4L1435.4,406.2L1435.4,406.2z"/>
 			</g>
 		</g>
-		<text transform="matrix(0.83 0 0 1 394.0474 374.2459)" class="st3w st4w st8w">COURSE PROGRESS</text>
+		<text transform="matrix(0.83 0 0 1 394.0478 374.2961)" class="st3 st4 st8">COURSE PROGRESS</text>
 		<g id="dynamic_1_" transform="translate({{arrow}})">
-			<text id="value_4_" transform="matrix(0.83 0 0 1 364.3604 393.8953)" class="st9w st4w st10w">{{overallEarned}}/{{overallPossible}}</text>
+			<text id="value_4_" transform="matrix(0.83 0 0 1 364.3603 393.9455)" class="st9 st4 st10">{{overallEarned}}/{{overallPossible}}</text>
 			<g id="arrow_2_">
-				<polygon class="st9w" points="384.3,397.3 408.9,397.3 396.6,409.8 				"/>
-				<path class="st11w" d="M405.9,398.6l-9.3,9.4l-9.3-9.4h9.3H405.9 M411.9,396.1h-6h-9.3h-9.3h-6l4.2,4.3l9.3,9.4l1.8,1.8l1.8-1.8
-					l9.3-9.4L411.9,396.1L411.9,396.1z"/>
+				<polygon class="st9" points="384.3,397.4 408.9,397.4 396.6,409.9 				"/>
+				<path class="st11" d="M405.9,398.7l-9.3,9.4l-9.3-9.4h9.3H405.9 M411.9,396.2h-6h-9.3h-9.3h-6l4.2,4.3l9.3,9.4l1.8,1.8l1.8-1.8
+					l9.3-9.4L411.9,396.2L411.9,396.2z"/>
 			</g>
 		</g>
-		<rect id="bar_2_" x="394.2" y="413" class="st9w" width="0" height="47.8"/>
+		<rect id="bar_2_" x="394.2" y="413.1" class="st9" width="0" height="47.8"/>
 		<g>
 			<g>
-				<path class="st0w" d="M1424.6,417v39.6H396.4V417H1424.6 M1432,409.5h-7.2H396.1h-7.2v3.4v47.8v3.4h7.2h1028.7h7.2v-3.4v-47.8
-					L1432,409.5L1432,409.5z"/>
+				<path class="st0" d="M1424.6,417.1v39.6H396.4v-39.6H1424.6 M1432,409.6h-7.2H396.1h-7.2v3.4v47.8v3.4h7.2h1028.7h7.2v-3.4V413
+					L1432,409.6L1432,409.6z"/>
 			</g>
 		</g>
-		<line class="st12w" x1="1215.6" y1="409.5" x2="1215.6" y2="464"/>
-		<text transform="matrix(0.83 0 0 1 1199.4082 491.8953)" class="st7w st4w st10w">{{passing}}</text>
+		<line class="st12" x1="1215.6" y1="409.6" x2="1215.6" y2="464.1"/>
+		<text transform="matrix(0.83 0 0 1 1199.4082 491.9455)" class="st7 st4 st10">{{passing}}</text>
 	</g>
 </g>
 <g id="more">
-	<rect x="1337" y="313.5" class="st13w" width="95" height="30.5"/>
-<text transform="matrix(1 0 0 1 1343.4612 332.2689)" class="st3w st14w st15w">MORE DETAILS</text>
+	<rect x="1641" y="595.2" class="st13" width="95" height="30.5"/>
+	<text transform="matrix(1 0 0 1 1647.4612 613.9689)" class="st3 st4" style="font-size:12px;">MORE DETAILS</text>
 </g>
 </svg>
