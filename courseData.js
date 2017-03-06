@@ -3,9 +3,6 @@
 /*global valence*/
 //mainish
 valence.run(function (err, data) {
-    console.log("data:", data);
-    console.log("categories:", data.getCategories());
-    console.log("grades:", data.getGrades());
 
     //error check and handle
     if (err) {
@@ -112,12 +109,6 @@ function makeUnitObj(data, days) {
         }
     }
     
-    console.log("unit Head:", unitHead);
-      
-    console.log("dayObjs:", dayObjs);
-    console.log("de:", dayObjs[0].dayEarned);
-    console.log("dp:", dayObjs[0].dayPossible);
-    
     //sums up unit points (not including overall section)
     var sumsTemplate = {unitEarned: 0, unitPoss: 0};
     var unitSums = dayObjs.reduce(function(totals, day) {     
@@ -185,17 +176,17 @@ function makeDayObj(data, dayCat) {
             totals.totalEarned += grade.pointsNumerator;
             totals.totalPoss += grade.maxPoints;
             
-            //if that grade is a prep grade
-            if (grade.gradeShortName.substr(0, 0) === "p") {
+             //if that grade is a prep grade
+            if (grade.gradeShortName.substr(0, 4) === "prep") {
                 totals.prepEarned += grade.pointsNumerator;
                 totals.prepPoss += grade.maxPoints;
             }
             
             //if that grade is a pass-off/badge determining grade
-            if (grade.gradeShortName.substr(2) === "pass-off") {
+            if (grade.gradeShortName.substr(5) === "pass-off") {
                 badgeGrade = grade;
             }
-        }        
+        }
         return totals;
     }, sumsTemplate);
   
