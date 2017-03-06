@@ -1,16 +1,16 @@
 /*eslint-env jquery*/
 /*eslint no-console:0*/
-//console.log(testCourse);
-
 
 // declare & set context objects
-var overallContext = {
-    overallEarned: testCourse.overall.overallEarned,
-    overallPossible: testCourse.overall.overallPossible,
-    passing: testCourse.overall.passingValue,
-    barWidth: testCourse.overall.overallEarned / testCourse.overall.overallPossible * 1028,
-    arrow: ((testCourse.overall.overallEarned / testCourse.overall.overallPossible * 1028) - 4)
-};
+function generateWidget(course) {
+    var overallContext = {
+        overallEarned: course.overall.overallEarned,
+        overallPossible: course.overall.overallPossible,
+        passing: course.overall.passingValue,
+        barWidth: course.overall.overallEarned / course.overall.overallPossible * 1028,
+        arrow: ((course.overall.overallEarned / course.overall.overallPossible * 1028) - 4)
+    };
 
-//append pre-compiled template to i#gamificationWidget
-$('#gamificationWidget').append(Handlebars.templates.widget(overallContext));
+    //append pre-compiled template to i#gamificationWidget
+    $('#gamificationWidget').append(Handlebars.templates.widget(overallContext));
+}

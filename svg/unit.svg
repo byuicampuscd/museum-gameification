@@ -32,6 +32,7 @@
 	.st26u{fill:url(#SVGID_9_);}
 	.st27u{fill:url(#SVGID_10_);}
 	.st28u{fill:url(#SVGID_11_);}
+    .hidden{opacity:0;}
 </style>
 <g id="borders">
 	<rect class="st0u" width="1220.1" height="123.8"/>
@@ -46,7 +47,7 @@
 	<rect x="981.4" y="30.7" class="st7u" width="160.5" height="78.7"/>
 </g>
 <g class="unitTrophy{{unitNumber}}">
-	<g class="notAchieved">
+	<g class="{{notAchieved}}">
 		<circle class="st1u" cx="866.4" cy="69.7" r="39"/>
 		<g>
 			<polygon class="st8u" points="866.4,42.5 868.6,46.9 873.4,47.6 869.9,51 870.7,55.9 866.4,53.6 862,55.9 862.9,51 859.3,47.6 
@@ -112,7 +113,7 @@
 			</g>
 		</g>
 	</g>
-	<g class="acheived">
+	<g class="{{achieved}}">
 		<circle class="st1u" cx="867.1" cy="69.6" r="39"/>
 		<circle class="st13u" cx="867.1" cy="69.6" r="39"/>
 		<g>
