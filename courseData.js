@@ -55,7 +55,7 @@ function makeOverallObj(testCourse, data) {
     testCourse.overall = {
         "overallPossible": op,
         "overallEarned": oe,
-        "passingValue": passingGradePercentage * op
+        "passingValue": Math.round(passingGradePercentage * op)
     };
 }
 
