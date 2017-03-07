@@ -1,7 +1,12 @@
 /*eslint-env node*/
 /*eslint no-console:0*/
 /*global valence*/
-//mainish
+
+/************************ TO DO
+ create JSON settings file
+ use regEx to look for keys
+ put it in his course! search the gradebook for his format
+**************************/
 valence.run(function (err, data) {
 
     //error check and handle
@@ -19,6 +24,7 @@ valence.run(function (err, data) {
 
         console.log("Test course:", testCourse);
 
+        // OR Check if generateWidget is null (or generate)
         try {
             generateWidget(testCourse);
         } catch (err) {
@@ -76,6 +82,7 @@ function makeUnitsArray(testCourse, data) {
 
     //finds number of units
     for (var i = 0; i < categories.length; i++) {
+        console.log("CATEGORIES", categories[i].shortName);
         if (categories[i].shortName.substr(2, 2) === "o") {
             unitNum++;
         }
@@ -220,7 +227,6 @@ function makeDayObj(data, dayCat) {
         }
         return totals;
     }, sumsTemplate);
-
     //determine values for electiveEarned and electivePoss
     var electiveEarned = sums.totalEarned - sums.prepEarned;
     var electivePoss = sums.totalPoss - sums.prepPoss;
