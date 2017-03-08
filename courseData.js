@@ -84,7 +84,7 @@ function makeUnitsArray(testCourse, data) {
     for (var i = 0; i < categories.length; i++) {
 
         console.log("CATEGORIES", categories[i].shortName);
-        if (/o/.test(categories[i].shortName)) {
+        if (settings.overall.test(categories[i].shortName)) {
             unitNum++;
         }
     }
@@ -95,7 +95,7 @@ function makeUnitsArray(testCourse, data) {
             return cat.shortName.substr(1, 1) === ((i + 1) + "");
         }));
     }
-
+    
     //make unit array
     var unitObjs = [];
     for (i = 0; i < unitCats.length; i++) {
@@ -128,13 +128,27 @@ function makeUnitObj(data, days) {
     //make dayObjs array
     var dayObjs = [];
     var unitHead = {};
-
+    
+    console.log("before splice", days);
+    //pull out overall unit info
     for (var i = 0; i < days.length; i++) {
-        if (!(/o/.test(days[i].shortName))) {
-            dayObjs.push(makeDayObj(data, days[i]));
-        } else {
+        if (settings.overall.test(days[i].shortName)) {
             unitHead = days[i];
+            days.splice(i, 1);
         }
+    }
+    console.log("after splice", days);
+    //sorts days in order
+    days.sort(function(a, b) {
+        a = getDayNum(a.shortName);
+        b = getDayNum(b.shortName);
+        console.log(a, b);
+        return a - b;
+    })
+    console.log("sorted", days);
+    //creates day objs
+    for (i = 0; i < days.length; i++) {
+        dayObjs.push(makeDayObj(data, days[i]));
     }
 
     //sums up unit points (not including overall section)
@@ -162,7 +176,7 @@ function makeUnitObj(data, days) {
             totals.unitHeadPoss += grade.maxPoints;
 
             //if that grade is a pass-off/badge determining grade 
-            if(/pass-off/.test(grade.gradeShortName)) {
+            if(settings.badge.test(grade.gradeShortName)) {
                 badgeGrade = grade;
             }
         }
@@ -216,13 +230,13 @@ function makeDayObj(data, dayCat) {
             totals.totalPoss += grade.maxPoints;
             
              //if that grade is a prep grade
-            if (/prep/.test(grade.gradeShortName)) {
+            if (settings.preparation.test(grade.gradeShortName)) {
                 totals.prepEarned += grade.pointsNumerator;
                 totals.prepPoss += grade.maxPoints;
             }
 
             //if that grade is a pass-off/badge determining grade
-            if (/pass-off/.test(grade.gradeShortName)) {
+            if (settings.badge.test(grade.gradeShortName)) {
                 badgeGrade = grade;
             }
         }
@@ -248,3 +262,16 @@ function makeDayObj(data, dayCat) {
         "dayEarned": sums.totalEarned
     };
 }
+
+/**********************************************************
+ * function: getDayNum
+ * desc: 
+ * inputs: 
+ *       str
+ * outputs: num
+ **********************************************************/
+function getDayNum(str) {
+    var regEx = new RegExp('/d(\d+)/');
+    return parseInt(regEx.exec(str), 10);
+}
+
