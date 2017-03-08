@@ -1,7 +1,7 @@
 // link to this file in html & use it in courseData to parse gradebook
 const settings = {
-    overall: ":o",
-    badge: 'b', // or pass-off
-    preparation: ':r', //or prep
-    elective: ':e'
+    overall: new RegExp(':o'),
+    badge: new RegExp(':b'), // or pass-off
+    preparation: new RegExp(':r'), //or prep
+    elective: new RegExp(':e')
 }
