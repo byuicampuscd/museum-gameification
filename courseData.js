@@ -233,8 +233,10 @@ function makeDayObj(data, dayCat) {
             if (settings.preparation.test(grade.gradeShortName)) {
                 totals.prepEarned += grade.pointsNumerator;
                 totals.prepPoss += grade.maxPoints;
-            } else if (settings.badge.test(grade.gradeShortName)) {
-                //if that grade is a pass-off/badge determining grade
+            }
+            
+            //if that grade is a pass-off/badge determining grade
+            if (settings.badge.test(grade.gradeShortName)) {
                 badgeGrade = grade;
             }
         }
