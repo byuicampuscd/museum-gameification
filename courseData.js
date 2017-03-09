@@ -76,19 +76,23 @@ function makeOverallObj(testCourse, data) {
  **********************************************************/
 function makeUnitsArray(testCourse, data) {
 
+    //all categories array
     var categories = data.getCategories();
-    var unitCats = [];
+
+    //unit arrays
+    var unitCats = [],
+        unitObjs = [];
+
+    //for number of units
     var unitNum = 0;
 
     //finds number of units
     for (var i = 0; i < categories.length; i++) {
-
-        //console.log("CATEGORIES", categories[i].shortName);
         if (settings.overall.test(categories[i].shortName)) {
             unitNum++;
         }
     }
-    console.log("num of units", unitNum);
+
     //makes array of arrays where each subarray holds the categories for a unit 
     for (i = 0; i < unitNum; i++) {
         unitCats.push(categories.filter(function (cat) {
@@ -96,8 +100,7 @@ function makeUnitsArray(testCourse, data) {
         }));
     }
 
-    //make unit array
-    var unitObjs = [];
+    //fill unitObj array with unit objects
     for (i = 0; i < unitCats.length; i++) {
         unitObjs.push(makeUnitObj(data, unitCats[i]));
     }
@@ -123,7 +126,7 @@ function makeUnitObj(data, days) {
 
     //vars to help determine badge
     var badgeGrade = {},
-        passPercent = settings.badgePassPercent;
+        passPercent = .7;
 
     //make dayObjs array
     var dayObjs = [],
@@ -136,13 +139,15 @@ function makeUnitObj(data, days) {
             days.splice(i, 1);
         }
     }
+
     //sorts days in order
     days.sort(function (a, b) {
         a = getDayNum(a.shortName);
         b = getDayNum(b.shortName);
         return a - b;
     })
-    //creates day objs
+
+    //fill dayObjs array with day objects
     for (i = 0; i < days.length; i++) {
         dayObjs.push(makeDayObj(data, days[i]));
     }
@@ -153,7 +158,6 @@ function makeUnitObj(data, days) {
         unitPoss: 0
     };
     var unitSums = dayObjs.reduce(function (totals, day) {
-
         totals.unitEarned += day.dayEarned;
         totals.unitPoss += day.dayPossible;
         return totals;
@@ -183,7 +187,7 @@ function makeUnitObj(data, days) {
     var unitPoss = unitHeadSums.unitHeadPoss + unitSums.unitPoss;
     var unitEarned = Math.floor(unitHeadSums.unitHeadEarned) + unitSums.unitEarned;
 
-    //make unit object
+    //make and return unit object
     return {
         "title": unitHead.catName,
         "earnedBadge": (badgeGrade.pointsNumerator >= (badgeGrade.maxPoints * passPercent)),
@@ -194,7 +198,7 @@ function makeUnitObj(data, days) {
 }
 
 /**********************************************************
- * function: makeDayObj
+ * function: makedayObj
  * desc: Sums up preperations possible points and preperations 
  *       earned points then uses subtraction to find electives 
  *       points.
@@ -209,7 +213,7 @@ function makeDayObj(data, dayCat) {
 
     //vars to help determine badge
     var badgeGrade = {},
-        passPercent = settings.badgePassPercent;
+        passPercent = .7;
 
     //determine values for prepEarned, prepPoss, totalEarned, and totalPoss 
     var sumsTemplate = {
@@ -218,10 +222,7 @@ function makeDayObj(data, dayCat) {
         totalEarned: 0,
         totalPoss: 0
     };
-
     var sums = grades.reduce(function (totals, grade) {
-
-        //        console.log("GRADE", grade);
 
         //if grade is in the passed cat
         if (grade.catID === dayCat.catID) {
@@ -232,15 +233,15 @@ function makeDayObj(data, dayCat) {
             if (settings.preparation.test(grade.gradeShortName)) {
                 totals.prepEarned += grade.pointsNumerator;
                 totals.prepPoss += grade.maxPoints;
-            } else if (settings.badge.test(grade.gradeShortName)) {
-                console.log('I AM BEING CALLED!!!');
-                //if that grade is a pass-off/badge determining grade
+            }
+
+            //if that grade is a pass-off/badge determining grade
+            if (settings.badge.test(grade.gradeShortName)) {
                 badgeGrade = grade;
             }
         }
         return totals;
     }, sumsTemplate);
-
 
     //round down
     sums.totalEarned = Math.floor(sums.totalEarned);
@@ -250,7 +251,7 @@ function makeDayObj(data, dayCat) {
     var electiveEarned = sums.totalEarned - sums.prepEarned;
     var electivePoss = sums.totalPoss - sums.prepPoss;
 
-    //make day object
+    //make and return day object
     return {
         "title": dayCat.catName,
         "prep": {
@@ -269,10 +270,11 @@ function makeDayObj(data, dayCat) {
 
 /**********************************************************
  * function: getDayNum
- * desc: 
+ * desc: Pulls day number from the day short name and returns
+ *       it as an int.
  * inputs: 
- *       str
- * outputs: num
+ *       str: a day short name
+ * outputs: day number
  **********************************************************/
 function getDayNum(str) {
     // add error handling in case it doesn't find it. or it finds :0....
