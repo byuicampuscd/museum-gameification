@@ -123,7 +123,7 @@ function makeUnitObj(data, days) {
 
     //vars to help determine badge
     var badgeGrade = {},
-        passPercent = .7;
+        passPercent = settings.badgePassPercent;
 
     //make dayObjs array
     var dayObjs = [],
@@ -209,7 +209,7 @@ function makeDayObj(data, dayCat) {
 
     //vars to help determine badge
     var badgeGrade = {},
-        passPercent = .7;
+        passPercent = settings.badgePassPercent;
 
     //determine values for prepEarned, prepPoss, totalEarned, and totalPoss 
     var sumsTemplate = {
@@ -221,12 +221,6 @@ function makeDayObj(data, dayCat) {
 
     var sums = grades.reduce(function (totals, grade) {
 
-        var test = settings.preparation.test(grade.gradeShortName);
-
-        /* if (test) {
-     console.log('GRADE', grade);
-     console.log('SETTINGS', settings.preparation);
- }*/
         //        console.log("GRADE", grade);
 
         //if grade is in the passed cat
@@ -236,10 +230,10 @@ function makeDayObj(data, dayCat) {
 
             //if that grade is a prep grade
             if (settings.preparation.test(grade.gradeShortName)) {
-                totals.prepEarned += grade.pointsNumerator; // THIS IS NULL! WHICH IS BREAKING THE ENTIRE THING!!!!
-                //                console.log("POINTS NUMERATOR", grade.pointsNumerator)
+                totals.prepEarned += grade.pointsNumerator;
                 totals.prepPoss += grade.maxPoints;
             } else if (settings.badge.test(grade.gradeShortName)) {
+                console.log('I AM BEING CALLED!!!');
                 //if that grade is a pass-off/badge determining grade
                 badgeGrade = grade;
             }
@@ -248,7 +242,6 @@ function makeDayObj(data, dayCat) {
     }, sumsTemplate);
 
 
-    //    console.log("PREP EARNED", sumsTemplate.prepEarned);
     //round down
     sums.totalEarned = Math.floor(sums.totalEarned);
     sums.prepEarned = Math.floor(sums.prepEarned);
@@ -256,8 +249,6 @@ function makeDayObj(data, dayCat) {
     //determine values for electiveEarned and electivePoss
     var electiveEarned = sums.totalEarned - sums.prepEarned;
     var electivePoss = sums.totalPoss - sums.prepPoss;
-
-    //    console.log("AFTER EARNED", sumsTemplate.prepEarned);
 
     //make day object
     return {
@@ -285,7 +276,6 @@ function makeDayObj(data, dayCat) {
  **********************************************************/
 function getDayNum(str) {
     // add error handling in case it doesn't find it. or it finds :0....
-    //    console.log("STRING", str);
     var regEx = /r(\d+)/;
     var searchResults = regEx.exec(str)[1];
     return parseInt(searchResults, 10);
