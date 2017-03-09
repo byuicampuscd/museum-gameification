@@ -60,7 +60,7 @@ function makeOverallObj(testCourse, data) {
     //set test courses overall with variables
     testCourse.overall = {
         "overallPossible": op,
-        "overallEarned": oe,
+        "overallEarned": Math.floor(oe),
         "passingValue": Math.round(passingGradePercentage * op)
     };
 }
@@ -83,12 +83,12 @@ function makeUnitsArray(testCourse, data) {
     //finds number of units
     for (var i = 0; i < categories.length; i++) {
 
-        console.log("CATEGORIES", categories[i].shortName);
+        //console.log("CATEGORIES", categories[i].shortName);
         if (settings.overall.test(categories[i].shortName)) {
             unitNum++;
         }
     }
-
+    console.log("num of units", unitNum);
     //makes array of arrays where each subarray holds the categories for a unit 
     for (i = 0; i < unitNum; i++) {
         unitCats.push(categories.filter(function (cat) {
@@ -181,7 +181,7 @@ function makeUnitObj(data, days) {
 
     //adds together unit and unit head points to make the total unit points
     var unitPoss = unitHeadSums.unitHeadPoss + unitSums.unitPoss;
-    var unitEarned = unitHeadSums.unitHeadEarned + unitSums.unitEarned;
+    var unitEarned = Math.floor(unitHeadSums.unitHeadEarned) + unitSums.unitEarned;
 
     //make unit object
     return {
@@ -249,7 +249,9 @@ function makeDayObj(data, dayCat) {
 
 
     //    console.log("PREP EARNED", sumsTemplate.prepEarned);
-
+    //round down
+    sums.totalEarned = Math.floor(sums.totalEarned);
+    sums.prepEarned = Math.floor(sums.prepEarned);
 
     //determine values for electiveEarned and electivePoss
     var electiveEarned = sums.totalEarned - sums.prepEarned;
