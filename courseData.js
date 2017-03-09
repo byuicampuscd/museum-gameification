@@ -49,6 +49,21 @@ valence.run(function (err, data) {
  * outputs: none
  **********************************************************/
 function makeOverallObj(testCourse, data) {
+    
+    /*
+    var grades = data.getGrades();
+    
+    //count all the points
+    var sumsTemplate = {
+        overallEarned: 0,
+        overallPoss: 0
+    };
+    var overallSums = grades.reduce(function (totals, grade) {     
+        totals.overallEarned += grade.pointsNumerator;
+        totals.overallPoss += grade.maxPoints;
+        return totals;
+    }, sumsTemplate);
+    */
 
     //make overall variables
     var op = data.getFinalCalculatedGrade().pointsDenominator;
@@ -59,9 +74,9 @@ function makeOverallObj(testCourse, data) {
 
     //set test courses overall with variables
     testCourse.overall = {
-        "overallPossible": op,
-        "overallEarned": Math.floor(oe),
-        "passingValue": Math.round(passingGradePercentage * op)
+        "overallPossible": op, //overallSums.overallPoss
+        "overallEarned": Math.floor(oe), //overallSums.overallEarned
+        "passingValue": Math.round(passingGradePercentage * op) 
     };
 }
 
