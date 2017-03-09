@@ -95,7 +95,7 @@ function makeUnitsArray(testCourse, data) {
             return cat.shortName.substr(1, 1) === ((i + 1) + "");
         }));
     }
-    
+
     //make unit array
     var unitObjs = [];
     for (i = 0; i < unitCats.length; i++) {
@@ -122,14 +122,13 @@ function makeUnitObj(data, days) {
     var grades = data.getGrades();
 
     //vars to help determine badge
-    var badgeGrade = {};
-    var passPercent = .7;
+    var badgeGrade = {},
+        passPercent = .7;
 
     //make dayObjs array
-    var dayObjs = [];
-    var unitHead = {};
-    
-    console.log("before splice", days);
+    var dayObjs = [],
+        unitHead = {};
+
     //pull out overall unit info
     for (var i = 0; i < days.length; i++) {
         if (settings.overall.test(days[i].shortName)) {
@@ -137,15 +136,12 @@ function makeUnitObj(data, days) {
             days.splice(i, 1);
         }
     }
-    console.log("after splice", days);
     //sorts days in order
-    days.sort(function(a, b) {
+    days.sort(function (a, b) {
         a = getDayNum(a.shortName);
         b = getDayNum(b.shortName);
-        console.log(a, b);
         return a - b;
     })
-    console.log("sorted", days);
     //creates day objs
     for (i = 0; i < days.length; i++) {
         dayObjs.push(makeDayObj(data, days[i]));
@@ -176,7 +172,7 @@ function makeUnitObj(data, days) {
             totals.unitHeadPoss += grade.maxPoints;
 
             //if that grade is a pass-off/badge determining grade 
-            if(settings.badge.test(grade.gradeShortName)) {
+            if (settings.badge.test(grade.gradeShortName)) {
                 badgeGrade = grade;
             }
         }
@@ -212,8 +208,8 @@ function makeDayObj(data, dayCat) {
     var grades = data.getGrades();
 
     //vars to help determine badge
-    var badgeGrade = {};
-    var passPercent = .7;
+    var badgeGrade = {},
+        passPercent = .7;
 
     //determine values for prepEarned, prepPoss, totalEarned, and totalPoss 
     var sumsTemplate = {
@@ -222,29 +218,44 @@ function makeDayObj(data, dayCat) {
         totalEarned: 0,
         totalPoss: 0
     };
+
     var sums = grades.reduce(function (totals, grade) {
+
+        var test = settings.preparation.test(grade.gradeShortName);
+
+        /* if (test) {
+     console.log('GRADE', grade);
+     console.log('SETTINGS', settings.preparation);
+ }*/
+        //        console.log("GRADE", grade);
 
         //if grade is in the passed cat
         if (grade.catID === dayCat.catID) {
             totals.totalEarned += grade.pointsNumerator;
             totals.totalPoss += grade.maxPoints;
-            
-             //if that grade is a prep grade
-            if (settings.preparation.test(grade.gradeShortName)) {
-                totals.prepEarned += grade.pointsNumerator;
-                totals.prepPoss += grade.maxPoints;
-            }
 
-            //if that grade is a pass-off/badge determining grade
-            if (settings.badge.test(grade.gradeShortName)) {
+            //if that grade is a prep grade
+            if (settings.preparation.test(grade.gradeShortName)) {
+                totals.prepEarned += grade.pointsNumerator; // THIS IS NULL! WHICH IS BREAKING THE ENTIRE THING!!!!
+                //                console.log("POINTS NUMERATOR", grade.pointsNumerator)
+                totals.prepPoss += grade.maxPoints;
+            } else if (settings.badge.test(grade.gradeShortName)) {
+                //if that grade is a pass-off/badge determining grade
                 badgeGrade = grade;
             }
         }
         return totals;
     }, sumsTemplate);
+
+
+    //    console.log("PREP EARNED", sumsTemplate.prepEarned);
+
+
     //determine values for electiveEarned and electivePoss
     var electiveEarned = sums.totalEarned - sums.prepEarned;
     var electivePoss = sums.totalPoss - sums.prepPoss;
+
+    //    console.log("AFTER EARNED", sumsTemplate.prepEarned);
 
     //make day object
     return {
@@ -271,7 +282,9 @@ function makeDayObj(data, dayCat) {
  * outputs: num
  **********************************************************/
 function getDayNum(str) {
-    var regEx = new RegExp('/d(\d+)/');
-    return parseInt(regEx.exec(str), 10);
+    // add error handling in case it doesn't find it. or it finds :0....
+    //    console.log("STRING", str);
+    var regEx = /r(\d+)/;
+    var searchResults = regEx.exec(str)[1];
+    return parseInt(searchResults, 10);
 }
-
