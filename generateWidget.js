@@ -1,13 +1,18 @@
 /*eslint-env jquery*/
 /*eslint no-console:0*/
 
-console.log("IN SCOPE", loveMuffin);
+// Convert Love Muffin to orgUnit
+var muffinTest = /enforced\/(\d+)/;
+loveMuffin = muffinTest.exec(loveMuffin)[1];
 
+var url = 'https://byui.brightspace.com/d2l/le/content/' + loveMuffin + '/viewContent/3507567/View';
+
+//console.log("DA URL", url);
 
 // declare & set context objects
 function generateWidget(course) {
     var overallContext = {
-        studentProgressURL: loveMuffin,
+        studentProgressURL: url,
         overallEarned: course.overall.overallEarned,
         overallPossible: course.overall.overallPossible,
         passing: course.overall.passingValue,
@@ -17,4 +22,6 @@ function generateWidget(course) {
 
     //append pre-compiled template to i#gamificationWidget
     $('#gamificationWidget').append(Handlebars.templates.widget(overallContext));
+
+
 }

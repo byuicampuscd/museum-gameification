@@ -50,21 +50,6 @@ valence.run(function (err, data) {
  **********************************************************/
 function makeOverallObj(testCourse, data) {
 
-    /* in case there is no overall grade!
-    var grades = data.getGrades();
-    
-    //count all the points
-    var sumsTemplate = {
-        overallEarned: 0,
-        overallPoss: 0
-    };
-    var overallSums = grades.reduce(function (totals, grade) {     
-        totals.overallEarned += grade.pointsNumerator;
-        totals.overallPoss += grade.maxPoints;
-        return totals;
-    }, sumsTemplate);
-    */
-
     //make overall variables
     var op = data.getFinalCalculatedGrade().pointsDenominator;
 
@@ -114,8 +99,6 @@ function makeUnitsArray(testCourse, data) {
             return cat.shortName.substr(1, 1) === ((i + 1) + "");
         }));
     }
-
-    console.log("UNIT CATS", unitCats);
 
     //fill unitObj array with unit objects
     for (i = 0; i < unitCats.length; i++) {
