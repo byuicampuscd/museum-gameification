@@ -52,8 +52,6 @@ function generate(course) {
             if (day.badge == false)
                 dayContext.achieved = 'hidden';
 
-            console.log("DAILY BADGE", day.badge);
-
             $('#gamificationMuseum').append(Handlebars.templates.day(dayContext));
         });
 
