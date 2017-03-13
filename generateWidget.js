@@ -5,7 +5,7 @@
 var muffinTest = /enforced\/(\d+)/;
 loveMuffin = muffinTest.exec(loveMuffin)[1];
 
-var url = 'https://byui.brightspace.com/d2l/le/content/' + loveMuffin + '/viewContent/3507567/View';
+var url = 'https://byui.brightspace.com/d2l/le/content/' + loveMuffin + '/viewContent/3507567/View'; // how to make file id dynamic?
 
 //console.log("DA URL", url);
 
