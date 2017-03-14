@@ -18,6 +18,13 @@ function generate(course) {
     // append overall section to #gamificationMuseum
     $('#gamificationMuseum').append(Handlebars.templates.overall(overallContext));
 
+
+
+
+
+
+
+
     // loop through the units
     course.units.forEach(function (unit, i) {
         unitContext = {
@@ -33,8 +40,23 @@ function generate(course) {
         $('#gamificationMuseum').append(Handlebars.templates.unit(unitContext));
 
 
+
+
+
+
+
+
         // loop through days
         unit.days.forEach(function (day, j) {
+            var electiveArrow = day.elective.earned / day.elective.possible * 331 - 3,
+                prepBar = day.prep.earned / day.prep.possible * 445 - 3;
+
+            if (electiveArrow < 0)
+                electiveArrow = 0;
+            if (prepBar < 0)
+                prepBar = 0;
+
+
             dayContext = {
                 unitNumber: unitContext.unitNumber,
                 dayTitle: day.title.toUpperCase(),
@@ -43,11 +65,11 @@ function generate(course) {
                 dayPossible: day.dayPossible,
                 prepEarned: day.prep.earned,
                 prepPossible: day.prep.possible,
-                prepBarWidth: day.prep.earned / day.prep.possible * 445 - 3,
+                prepBarWidth: prepBar,
                 prepArrow: day.prep.earned / day.prep.possible * 445 - 3,
                 electiveEarned: day.elective.earned,
                 electiveBarWidth: day.elective.earned / day.elective.possible * 331,
-                electiveArrow: day.elective.earned / day.elective.possible * 331 - 3
+                electiveArrow: electiveArrow
             };
             if (day.badge == false)
                 dayContext.achieved = 'hidden';
