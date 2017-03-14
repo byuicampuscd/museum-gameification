@@ -19,12 +19,6 @@ function generate(course) {
     $('#gamificationMuseum').append(Handlebars.templates.overall(overallContext));
 
 
-
-
-
-
-
-
     // loop through the units
     course.units.forEach(function (unit, i) {
         unitContext = {
@@ -40,12 +34,6 @@ function generate(course) {
         $('#gamificationMuseum').append(Handlebars.templates.unit(unitContext));
 
 
-
-
-
-
-
-
         // loop through days
         unit.days.forEach(function (day, j) {
             var electiveArrow = day.elective.earned / day.elective.possible * 331 - 3,
@@ -55,7 +43,6 @@ function generate(course) {
                 electiveArrow = 0;
             if (prepBar < 0)
                 prepBar = 0;
-
 
             dayContext = {
                 unitNumber: unitContext.unitNumber,

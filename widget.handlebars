@@ -18,6 +18,7 @@
 	.widget12{fill:#E8E5D9;}
 	.widget13{fill:#E9E6D9;stroke:#30302F;stroke-miterlimit:10;}
 	.widget14{font-size:12px;}
+    .cursor:hover{cursor:pointer;}
 </style>
 <g id="Layer_1_1_">
 	<rect id="background" x="304" y="281.7" class="widget0" width="1220" height="231.4"/>
@@ -33,7 +34,7 @@
 			<text transform="matrix(0.83 0 0 1 394.9609 330.5413)" class="widget3 widget4 widget6">FDHUM 214</text>
 		</g>
 		<text transform="matrix(0.83 0 0 1 394.0479 374.2459)" class="widget3 widget4 widget7">COURSE PROGRESS</text>
-		<rect id="bar_2_" x="394.2" y="413.1" class="widget8" width="30" height="47.8"/>
+		<rect id="bar_2_" x="394.2" y="413.1" class="widget8" width="{{barWidth}}" height="47.8"/>
 		<path class="widget0" d="M1424.6,417.1v39.6H396.4v-39.6H1424.6 M1432,409.6h-7.2H396.1h-7.2v3.4v47.8v3.4h7.2h1028.7h7.2v-3.4V413
 			L1432,409.6L1432,409.6z"/>
 		<g>
@@ -52,8 +53,22 @@
 		<text transform="matrix(0.83 0 0 1 1199.4082 491.8953)" class="widget9 widget4 widget11">{{passing}}</text>
 	</g>
 </g>
-<g id="more">
+<g id="more" onmouseover="mouseOver()" onmouseout="mouseOut()" onclick="redirect()" class="cursor">
 	<rect x="1340.4" y="315.3" class="widget13" width="95" height="30.5"/>
 	<text transform="matrix(1 0 0 1 1346.8612 334.0602)" class="widget3 widget4 widget14">MORE DETAILS</text>
 </g>
 </svg>
+<script type="text/javascript">
+    function redirect() {
+        window.location.href = '{{studentProgressURL}}';
+    }
+
+    function mouseOver() {
+        document.querySelector('#more rect').style.fill = '#CDCBBF';
+    }
+
+    function mouseOut() {
+        document.querySelector('#more rect').style.fill = '#E9E6D9';
+    }
+
+</script>

@@ -60,7 +60,7 @@ function makeOverallObj(testCourse, data) {
     //set test courses overall with variables
     testCourse.overall = {
         "overallPossible": op, //overallSums.overallPoss
-        "overallEarned": Math.floor(oe), //overallSums.overallEarned
+        "overallEarned": Math.round(oe), //overallSums.overallEarned
         "passingValue": Math.round(passingGradePercentage * op) //overallSums.overallPoss * passingGradePercentage
     };
 }
@@ -229,8 +229,8 @@ function makeDayObj(data, dayCat) {
     }, sumsTemplate);
 
     //round down
-    sums.totalEarned = Math.floor(sums.totalEarned);
-    sums.prepEarned = Math.floor(sums.prepEarned);
+    sums.totalEarned = Math.round(sums.totalEarned);
+    sums.prepEarned = Math.round(sums.prepEarned);
 
     //determine values for electiveEarned and electivePoss
     var electiveEarned = sums.totalEarned - sums.prepEarned;
