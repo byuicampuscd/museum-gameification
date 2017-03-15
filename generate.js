@@ -58,7 +58,10 @@ function generate(course) {
                 electiveBarWidth: day.elective.earned / day.elective.possible * 331,
                 electiveArrow: electiveArrow
             };
-            if (day.badge == false)
+            if (j == 0) {
+                dayContext.achieved = 'hidden';
+                dayContext.notAchieved = 'hidden';
+            } else if (day.badge == false)
                 dayContext.achieved = 'hidden';
 
             $('#gamificationMuseum').append(Handlebars.templates.day(dayContext));
