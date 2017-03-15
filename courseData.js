@@ -49,21 +49,6 @@ valence.run(function (err, data) {
  * outputs: none
  **********************************************************/
 function makeOverallObj(testCourse, data) {
-    
-    /*
-    var grades = data.getGrades();
-    
-    //count all the points
-    var sumsTemplate = {
-        overallEarned: 0,
-        overallPoss: 0
-    };
-    var overallSums = grades.reduce(function (totals, grade) {     
-        totals.overallEarned += grade.pointsNumerator;
-        totals.overallPoss += grade.maxPoints;
-        return totals;
-    }, sumsTemplate);
-    */
 
     //make overall variables
     var op = data.getFinalCalculatedGrade().pointsDenominator;
@@ -75,7 +60,7 @@ function makeOverallObj(testCourse, data) {
     //set test courses overall with variables
     testCourse.overall = {
         "overallPossible": op, //overallSums.overallPoss
-        "overallEarned": Math.floor(oe), //overallSums.overallEarned
+        "overallEarned": Math.round(oe), //overallSums.overallEarned
         "passingValue": Math.round(passingGradePercentage * op) //overallSums.overallPoss * passingGradePercentage
     };
 }
@@ -93,11 +78,11 @@ function makeUnitsArray(testCourse, data) {
 
     //all categories array
     var categories = data.getCategories();
-    
+
     //unit arrays
     var unitCats = [],
         unitObjs = [];
-    
+
     //for number of units
     var unitNum = 0;
 
@@ -141,7 +126,7 @@ function makeUnitObj(data, days) {
 
     //vars to help determine badge
     var badgeGrade = {},
-        passPercent = .7;
+        passPercent = settings.badgePassPercent;
 
     //make dayObjs array
     var dayObjs = [],
@@ -151,17 +136,16 @@ function makeUnitObj(data, days) {
     for (var i = 0; i < days.length; i++) {
         if (settings.overall.test(days[i].shortName)) {
             unitHead = days[i];
-            days.splice(i, 1);
         }
     }
-    
+
     //sorts days in order
     days.sort(function (a, b) {
         a = getDayNum(a.shortName);
         b = getDayNum(b.shortName);
         return a - b;
     })
-    
+
     //fill dayObjs array with day objects
     for (i = 0; i < days.length; i++) {
         dayObjs.push(makeDayObj(data, days[i]));
@@ -183,24 +167,10 @@ function makeUnitObj(data, days) {
         unitHeadEarned: 0,
         unitHeadPoss: 0
     };
-    var unitHeadSums = grades.reduce(function (totals, grade) {
-
-        //grade is in unit head
-        if (grade.catID === unitHead.catID) {
-            totals.unitHeadEarned += grade.pointsNumerator;
-            totals.unitHeadPoss += grade.maxPoints;
-
-            //if that grade is a pass-off/badge determining grade 
-            if (settings.badge.test(grade.gradeShortName)) {
-                badgeGrade = grade;
-            }
-        }
-        return totals;
-    }, sumsTemplate);
 
     //adds together unit and unit head points to make the total unit points
-    var unitPoss = unitHeadSums.unitHeadPoss + unitSums.unitPoss;
-    var unitEarned = Math.floor(unitHeadSums.unitHeadEarned) + unitSums.unitEarned;
+    var unitPoss = unitSums.unitPoss;
+    var unitEarned = unitSums.unitEarned;
 
     //make and return unit object
     return {
@@ -249,7 +219,7 @@ function makeDayObj(data, dayCat) {
                 totals.prepEarned += grade.pointsNumerator;
                 totals.prepPoss += grade.maxPoints;
             }
-            
+
             //if that grade is a pass-off/badge determining grade
             if (settings.badge.test(grade.gradeShortName)) {
                 badgeGrade = grade;
@@ -259,8 +229,8 @@ function makeDayObj(data, dayCat) {
     }, sumsTemplate);
 
     //round down
-    sums.totalEarned = Math.floor(sums.totalEarned);
-    sums.prepEarned = Math.floor(sums.prepEarned);
+    sums.totalEarned = Math.round(sums.totalEarned);
+    sums.prepEarned = Math.round(sums.prepEarned);
 
     //determine values for electiveEarned and electivePoss
     var electiveEarned = sums.totalEarned - sums.prepEarned;
@@ -292,8 +262,12 @@ function makeDayObj(data, dayCat) {
  * outputs: day number
  **********************************************************/
 function getDayNum(str) {
-    // add error handling in case it doesn't find it. or it finds :0....
+    // add error handling in case it doesn't find it. or it finds :o....
     var regEx = /r(\d+)/;
-    var searchResults = regEx.exec(str)[1];
+    try {
+        var searchResults = regEx.exec(str)[1];
+    } catch (err) {
+        return 0;
+    }
     return parseInt(searchResults, 10);
 }

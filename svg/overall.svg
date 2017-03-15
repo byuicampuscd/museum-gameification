@@ -1,62 +1,53 @@
-<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 1220 231.3" style="enable-background:new 0 0 1220 231.3;" xml:space="preserve">
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="304 281.7 1220 231.3" style="enable-background:new 304 281.7 1220 231.3;" xml:space="preserve">
 <style type="text/css">
     @import url('https://fonts.googleapis.com/css?family=Roboto:900');
-	.st0o{fill:#E9E6D9;}
-	.st1o{fill:#CDCBBF;}
-	.st2o{fill:none;stroke:#CDCBBF;stroke-width:4;stroke-miterlimit:10;}
-	.st3o{fill:#30302F;}
-	.st4o{font-family:'Roboto'; font-weight: 900;}
-	.st5o{font-size:13.5px;}
-	.st6o{font-size:31px;}
-	.st7o{fill:#2F2F2F;}
-	.st8o{font-size:30.6015px;}
-	.st9o{fill:#40B771;}
-	.st10o{font-size:22.2484px;}
-	.st11o{fill:#E8E5D9;}
-	.st12o{fill:none;stroke:#2F2F2F;stroke-width:3.415;stroke-miterlimit:10;}
+	.st0{fill:#E9E6D9;}
+	.st1{fill:#CDCBBF;}
+	.st2{fill:none;stroke:#CDCBBF;stroke-width:4;stroke-miterlimit:10;}
+	.st3{fill:#30302F;}
+	.st4{font-family:'Roboto';font-weight:900}
+	.st5{font-size:13.5px;}
+	.st6{font-size:31px;}
+	.st7{font-size:30.6015px;}
+	.st8{fill:#40B771;}
+	.st9{fill:#2F2F2F;}
+	.st10{fill:none;stroke:#2F2F2F;stroke-width:3.415;stroke-miterlimit:10;}
+	.st11{font-size:22.2484px;}
+	.st12{fill:#E8E5D9;}
 </style>
-<g id="Layer_1">
-	<rect id="background" y="-0.1" class="st0o" width="1220" height="231.4"/>
+<g id="Layer_1_1_">
+	<rect id="background" x="304" y="281.6" class="st0" width="1220" height="231.4"/>
 	<g id="overall_1_">
-		<rect x="29.1" class="st0o" width="1162.7" height="230.8"/>
 		<g>
-			<g>
-				<path class="st1o" d="M1173.9,3.9v13.8v195.8v13.8h-7.8H47.7h-7.8v-13.8V17.7V3.9h7.8h1118.4H1173.9 M1177.9-0.1h-4h-7.8H47.7
-					h-7.8h-4v4v13.8v195.8v13.8v4h4h7.8h1118.4h7.8h4v-4v-13.8V17.7V3.9V-0.1L1177.9-0.1z"/>
-			</g>
+			<path class="st1" d="M1477.9,285.6v13.8v195.8V509h-7.8H351.7h-7.8v-13.8V299.4v-13.8h7.8h1118.4H1477.9 M1481.9,281.6h-4h-7.8
+				H351.7h-7.8h-4v4v13.8v195.8V509v4h4h7.8h1118.4h7.8h4v-4v-13.8V299.4v-13.8V281.6L1481.9,281.6z"/>
+			<line class="st2" x1="332.6" y1="283.5" x2="332.6" y2="513"/>
+			<line class="st2" x1="1494.2" y1="284.3" x2="1494.2" y2="512.5"/>
 		</g>
-		<line class="st2o" x1="28.6" y1="1.8" x2="28.6" y2="231.3"/>
-		<line class="st2o" x1="1190.2" y1="2.6" x2="1190.2" y2="230.8"/>
 		<g id="title_1_">
-			<text transform="matrix(0.9222 0 0 1 90.9609 62.2734)" class="st3o st4o st5o">Modern Arts and Propaganda</text>
-			<text transform="matrix(0.83 0 0 1 90.9604 48.8413)" class="st3o st4o st6o">FDHUM 214</text>
+			<text transform="matrix(0.9222 0 0 1 394.9609 343.9734)" class="st3 st4 st5">Modern Arts and Propaganda</text>
+			<text transform="matrix(0.83 0 0 1 394.9604 330.5413)" class="st3 st4 st6">FDHUM 214</text>
 		</g>
+		<text transform="matrix(0.83 0 0 1 394.0474 374.2459)" class="st3 st4 st7">COURSE PROGRESS</text>
+		<rect id="bar_2_" x="394.2" y="413" class="st8" width="30" height="47.8"/>
+		<path class="st0" d="M1424.6,417v39.6H396.4V417H1424.6 M1432,409.5h-7.2H396.1h-7.2v3.4v47.8v3.4h7.2h1028.7h7.2v-3.4v-47.8
+			L1432,409.5L1432,409.5z"/>
 		<g>
-			<g>
-				<path class="st7o" d="M1128,127.8v3.4V179v3.4h-7.2H92.1h-7.2V179v-47.8v-3.4h7.2h1028.7L1128,127.8 M1131.4,124.4h-3.4h-7.2
-					H92.1h-7.2h-3.4v3.4v3.4V179v3.4v3.4h3.4h7.2h1028.7h7.2h3.4v-3.4V179v-47.8v-3.4L1131.4,124.4L1131.4,124.4z"/>
-			</g>
+			<path class="st9" d="M1432,409.5v3.4v47.8v3.4h-7.2H396.1h-7.2v-3.4v-47.8v-3.4h7.2h1028.7H1432 M1435.4,406.1h-3.4h-7.2H396.1
+				h-7.2h-3.4v3.4v3.4v47.8v3.4v3.4h3.4h7.2h1028.7h7.2h3.4v-3.4v-3.4v-47.8v-3.4L1435.4,406.1L1435.4,406.1z"/>
+			<line class="st10" x1="1215.6" y1="409.5" x2="1215.6" y2="464"/>
 		</g>
-		<text transform="matrix(0.83 0 0 1 90.0474 92.5459)" class="st3o st4o st8o">COURSE PROGRESS</text>
 		<g id="dynamic_1_" transform="translate({{arrow}})">
-			<text id="value_4_" transform="matrix(0.83 0 0 1 60.3604 112.1953)" class="st9o st4o st10o">{{overallEarned}}/{{overallPossible}}</text>
+			<text id="value_4_" transform="matrix(0.83 0 0 1 364.3604 393.8953)" class="st8 st4 st11">{{overallEarned}}/{{overallPossible}}</text>
 			<g id="arrow_2_">
-				<polygon class="st9o" points="80.3,115.6 104.9,115.6 92.6,128.1 				"/>
-				<path class="st11o" d="M101.9,116.9l-9.3,9.4l-9.3-9.4h9.3H101.9 M107.9,114.4h-6h-9.3h-9.3h-6l4.2,4.3l9.3,9.4l1.8,1.8l1.8-1.8
-					l9.3-9.4L107.9,114.4L107.9,114.4z"/>
+				<polygon class="st8" points="384.3,397.3 408.9,397.3 396.6,409.8"/>
+				<path class="st12" d="M405.9,398.6l-9.3,9.4l-9.3-9.4h9.3H405.9 M411.9,396.1h-6h-9.3h-9.3h-6l4.2,4.3l9.3,9.4l1.8,1.8l1.8-1.8
+					l9.3-9.4L411.9,396.1L411.9,396.1z"/>
 			</g>
 		</g>
-		<rect id="bar_2_" x="90.2" y="131.3" class="st9o" width="{{barWidth}}" height="47.8"/>
-		<g>
-			<g>
-				<path class="st0o" d="M1120.6,135.3v39.6H92.4v-39.6L1120.6,135.3 M1128,127.8h-7.2H92.1h-7.2v3.4V179v3.4h7.2h1028.7h7.2V179
-					v-47.8L1128,127.8L1128,127.8z"/>
-			</g>
-		</g>
-		<line class="st12o" x1="911.6" y1="127.8" x2="911.6" y2="182.3"/>
-		<text transform="matrix(0.83 0 0 1 895.4082 210.1953)" class="st7o st4o st10o">{{passing}}</text>
+		<text transform="matrix(0.83 0 0 1 1199.4082 491.8953)" class="st9 st4 st11">{{passing}}</text>
 	</g>
-</g>
-<g id="Layer_2">
 </g>
 </svg>
