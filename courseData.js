@@ -111,7 +111,7 @@ function makeUnitsArray(testCourse, data) {
     //makes array of arrays where each subarray holds the categories for a unit 
     for (i = 0; i < unitNum; i++) {
         unitCats.push(categories.filter(function (cat) {
-            return cat.shortName.substr(1, 1) === ((i + 1) + "");
+            return cat.shortName.substr(1, 1) === ((i + 1) + "");   
         }));
     }
 
