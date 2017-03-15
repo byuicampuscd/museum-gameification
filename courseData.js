@@ -96,7 +96,7 @@ function makeUnitsArray(testCourse, data) {
     //makes array of arrays where each subarray holds the categories for a unit 
     for (i = 0; i < unitNum; i++) {
         unitCats.push(categories.filter(function (cat) {
-            return cat.shortName.substr(1, 1) === ((i + 1) + "");
+            return cat.shortName.substr(1, 1) === ((i + 1) + "");   
         }));
     }
 
@@ -150,6 +150,9 @@ function makeUnitObj(data, days) {
     for (i = 0; i < days.length; i++) {
         dayObjs.push(makeDayObj(data, days[i]));
     }
+    
+    //makes the overall section name = overall
+    dayObjs[0].title = "Section Assignments";
 
     //sums up unit points (not including overall section)
     var sumsTemplate = {
@@ -161,12 +164,6 @@ function makeUnitObj(data, days) {
         totals.unitPoss += day.dayPossible;
         return totals;
     }, sumsTemplate);
-
-    //sums up all points from the unit head
-    sumsTemplate = {
-        unitHeadEarned: 0,
-        unitHeadPoss: 0
-    };
 
     //adds together unit and unit head points to make the total unit points
     var unitPoss = unitSums.unitPoss;
