@@ -55,7 +55,7 @@ function makeOverallObj(testCourse, data) {
 
     var oe = data.getFinalCalculatedGrade().pointsNumerator;
 
-    var passingGradePercentage = .7;
+    var passingGradePercentage = settings.passPercent;
 
     //set test courses overall with variables
     testCourse.overall = {
@@ -121,12 +121,9 @@ function makeUnitsArray(testCourse, data) {
  **********************************************************/
 function makeUnitObj(data, days) {
 
-    //make grades array
-    var grades = data.getGrades();
-
     //vars to help determine badge
     var badgeGrade = {},
-        passPercent = settings.badgePassPercent;
+        passPercent = settings.passPercent;
 
     //make dayObjs array
     var dayObjs = [],
