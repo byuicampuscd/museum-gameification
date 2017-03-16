@@ -127,6 +127,9 @@ function makeUnitsArray(testCourse, data) {
  **********************************************************/
 function makeUnitObj(data, days) {
 
+    // make grades array
+    var grades = data.getGrades();
+
     //vars to help determine badge
     var badgeGrade = {},
         passPercent = settings.exhibitPassPercent;
@@ -169,8 +172,18 @@ function makeUnitObj(data, days) {
     }, sumsTemplate);
 
     //adds together unit and unit head points to make the total unit points
-    var unitPoss = unitSums.unitPoss;
-    var unitEarned = unitSums.unitEarned;
+    var unitPoss = unitSums.unitPoss,
+        unitEarned = unitSums.unitEarned;
+
+    //set badgeGrade
+    grades.forEach(function (grade) {
+        if (grade.catID === unitHead.catID) {
+            //if that grade is a pass-off/badge determining grade 
+            if (settings.badge.test(grade.gradeShortName)) {
+                badgeGrade = grade;
+            }
+        }
+    });
 
     //make and return unit object
     return {
