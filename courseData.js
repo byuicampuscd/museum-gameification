@@ -1,6 +1,12 @@
 /*eslint-env node*/
 /*eslint no-console:0*/
 /*global valence*/
+/*global settings*/
+
+settings.overall = new RegExp(settings.overall);
+settings.badge = new RegExp(settings.badge);
+settings.preparation = new RegExp(settings.preparation);
+settings.elective = new RegExp(settings.elective);
 
 /************************ TO DO
  create JSON settings file
@@ -96,7 +102,7 @@ function makeUnitsArray(testCourse, data) {
     //makes array of arrays where each subarray holds the categories for a unit 
     for (i = 0; i < unitNum; i++) {
         unitCats.push(categories.filter(function (cat) {
-            return cat.shortName.substr(1, 1) === ((i + 1) + "");   
+            return cat.shortName.substr(1, 1) === ((i + 1) + "");
         }));
     }
 
@@ -150,7 +156,7 @@ function makeUnitObj(data, days) {
     for (i = 0; i < days.length; i++) {
         dayObjs.push(makeDayObj(data, days[i]));
     }
-    
+
     //makes the overall section name = overall
     dayObjs[0].title = "Section Assignments";
 

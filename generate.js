@@ -47,7 +47,6 @@ function generate(course) {
             dayContext = {
                 unitNumber: unitContext.unitNumber,
                 dayTitle: day.title.toUpperCase(),
-                //                badge: day.badge,
                 dayEarned: day.dayEarned,
                 dayPossible: day.dayPossible,
                 prepEarned: day.prep.earned,

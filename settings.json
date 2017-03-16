@@ -1,9 +1,10 @@
 // link to this file in html & use it in courseData to parse gradebook
 const settings = {
-    overall: new RegExp(/:o/),
-    badge: new RegExp(/:b/), // pass-off
-    badgePassPercent: .7,
-    preparation: new RegExp(/:r/), // prep
-    elective: new RegExp(/:e/) // unused
+    overall: ':o', // unit level assignments
+    badge: ':b', // pass-off
+    preparation: ':r',
+    elective: ':e',
+    badgePassPercent: .7, // what percent is required to earn a badge
+    unitAssignments: "Section Assignments"
 
 }
