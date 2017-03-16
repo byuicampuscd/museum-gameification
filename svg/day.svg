@@ -51,9 +51,9 @@
 			h-7.9H340v4v10.5v148.4v10.5v4h4.1h7.9h1118.1h7.9h4.1v-4v-10.5V323.6v-10.5L1482,309.2L1482,309.2z"/>
 	</g>
 	<g id="title_1_">
-		<text transform="matrix(0.9222 0 0 1 398.1147 357.1613)" class="day3 day4 day5">PROPAGANDA IN AMERICA</text>
-		<text transform="matrix(0.83 0 0 1 398.1147 344.8058)" class="day3 day4 day6">UNIT{{unitNumber}}</text>
-		<text transform="matrix(0.83 0 0 1 468.8306 344.8058)" class="day3 day7 day6">{{dayTitle}}</text>
+		<text transform="matrix(0.9222 0 0 1 398.1143 356.6611)" class="day3 day4 day5">PROPAGANDA IN AMERICA</text>
+		<text transform="matrix(0.83 0 0 1 398.1152 344.3056)" class="day3 day4 day6">SECTION {{unitNumber}}</text>
+		<text transform="matrix(0.83 0 0 1 513.8301 344.3056)" class="day3 day7 day6">{{dayTitle}}</text>
 	</g>
 	<g id="preparation">
 		<rect x="396.4" y="388" class="day0" width="447.4" height="44.4"/>
