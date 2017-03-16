@@ -8,6 +8,8 @@ console.log("DA URL", url);
 // declare & set context objects
 function generateWidget(course) {
     var overallContext = {
+        courseTitle: settings.courseTitle,
+        courseCode: settings.courseCode.toUpperCase(),
         studentProgressURL: url,
         overallEarned: course.overall.overallEarned,
         overallPossible: course.overall.overallPossible,

@@ -6,8 +6,11 @@ const settings = {
     elective: ':e',
     roomPassPercent: 1, // what percent is required to earn a badge
     exhibitPassPercent: .92, // what percent is required to earn a badge
+    courseTitle: "Art and Propaganda in the 20th Century",
+    courseCode: "FDHUM 214",
     unitAssignmentHeader: "Exhibit Level Assignments",
-    greenBarDefaultTitle: "PREPARATION",
+    greenBarTitle: "PREPARATION",
     greenBarUnitTitle: "PARTICIPATION",
-    blueBarHeader: "ELECTIVE"
+    blueBarTitle: "ELECTIVE",
+    roomTitle: "EXHIBIT"
 };

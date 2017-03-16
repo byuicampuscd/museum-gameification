@@ -27,8 +27,8 @@
 			<line class="st2" x1="1494.2" y1="284.3" x2="1494.2" y2="512.5"/>
 		</g>
 		<g id="title_1_">
-			<text transform="matrix(0.9222 0 0 1 394.9609 343.9734)" class="st3 st4 st5">Art and Propaganda in the 20th Century</text>
-			<text transform="matrix(0.83 0 0 1 394.9604 330.5413)" class="st3 st4 st6">FDHUM 214</text>
+			<text transform="matrix(0.9222 0 0 1 394.9609 343.9734)" class="st3 st4 st5">{{courseTitle}}</text>
+			<text transform="matrix(0.83 0 0 1 394.9604 330.5413)" class="st3 st4 st6">{{courseCode}}</text>
 		</g>
 		<text transform="matrix(0.83 0 0 1 394.0474 374.2459)" class="st3 st4 st7">COURSE PROGRESS</text>
 		<rect id="bar_2_" x="394.2" y="413" class="st8" width="30" height="47.8"/>

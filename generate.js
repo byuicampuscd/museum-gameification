@@ -6,6 +6,8 @@
 function generate(course) {
     // declare & set context objects
     var overallContext = {
+            courseTitle: settings.courseTitle,
+            courseCode: settings.courseCode.toUpperCase(),
             overallEarned: course.overall.overallEarned,
             overallPossible: course.overall.overallPossible,
             barWidth: course.overall.overallEarned / course.overall.overallPossible * 1028,
@@ -46,7 +48,8 @@ function generate(course) {
                 prepBar = 0;
 
             dayContext = {
-                preparation: settings.greenBarDefaultTitle.toUpperCase(),
+                roomTitle: settings.roomTitle.toUpperCase(),
+                preparationTitle: settings.greenBarTitle.toUpperCase(),
                 unitNumber: unitContext.unitNumber,
                 dayTitle: day.title.toUpperCase(),
                 dayEarned: day.dayEarned,
@@ -58,7 +61,7 @@ function generate(course) {
                 electiveEarned: day.elective.earned,
                 electiveBarWidth: day.elective.earned / day.elective.possible * 331,
                 electiveArrow: electiveArrow,
-                electiveBarHeader: settings.blueBarHeader.toUpperCase()
+                electiveBarTitle: settings.blueBarTitle.toUpperCase()
             };
 
             //set prep header to participation
