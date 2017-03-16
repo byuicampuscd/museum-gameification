@@ -61,17 +61,13 @@ valence.run(function (err, data) {
 function makeOverallObj(testCourse, data) {
 
     //make overall variables
-    var op = data.getFinalCalculatedGrade().pointsDenominator;
-
-    var oe = data.getFinalCalculatedGrade().pointsNumerator;
-
-    var passingGradePercentage = settings.passPercent;
+    var op = data.getFinalCalculatedGrade().pointsDenominator,
+        oe = data.getFinalCalculatedGrade().pointsNumerator;
 
     //set test courses overall with variables
     testCourse.overall = {
         "overallPossible": op, //overallSums.overallPoss
         "overallEarned": Math.round(oe), //overallSums.overallEarned
-        "passingValue": Math.round(passingGradePercentage * op) //overallSums.overallPoss * passingGradePercentage
     };
 }
 
@@ -133,7 +129,7 @@ function makeUnitObj(data, days) {
 
     //vars to help determine badge
     var badgeGrade = {},
-        passPercent = settings.passPercent;
+        passPercent = settings.exhibitPassPercent;
 
     //make dayObjs array
     var dayObjs = [],
@@ -159,7 +155,7 @@ function makeUnitObj(data, days) {
     }
 
     //makes the overall section name = overall
-    dayObjs[0].title = "Section Assignments";
+    dayObjs[0].title = settings.unitAssignments;
 
     //sums up unit points (not including overall section)
     var sumsTemplate = {
@@ -179,7 +175,7 @@ function makeUnitObj(data, days) {
     //make and return unit object
     return {
         "title": unitHead.catName,
-        "earnedBadge": (badgeGrade.pointsNumerator >= (badgeGrade.maxPoints * passPercent)),
+        "earnedBadge": (badgeGrade.pointsNumerator >= (badgeGrade.maxPoints * passPercent)), // NOT WORKING! BadgeGrade is empty!!
         "unitPossible": unitPoss,
         "unitEarned": unitEarned,
         "days": dayObjs
@@ -202,7 +198,7 @@ function makeDayObj(data, dayCat) {
 
     //vars to help determine badge
     var badgeGrade = {},
-        passPercent = settings.passPercent;
+        passPercent = settings.roomPassPercent;
 
     //determine values for prepEarned, prepPoss, totalEarned, and totalPoss 
     var sumsTemplate = {

@@ -7,7 +7,6 @@ function generate(course) {
     var overallContext = {
             overallEarned: course.overall.overallEarned,
             overallPossible: course.overall.overallPossible,
-            passing: course.overall.passingValue,
             barWidth: course.overall.overallEarned / course.overall.overallPossible * 1028,
             arrow: ((course.overall.overallEarned / course.overall.overallPossible * 1028) - 4)
         },
