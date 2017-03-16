@@ -5,6 +5,9 @@ const settings = {
     preparation: ':r',
     elective: ':e',
     roomPassPercent: 1, // what percent is required to earn a badge
-    exhibitPassPercent: .934, // what percent is required to earn a badge
-    unitAssignments: "Exhibit Level Assignments"
+    exhibitPassPercent: .92, // what percent is required to earn a badge
+    unitAssignmentHeader: "Exhibit Level Assignments",
+    greenBarDefaultTitle: "PREPARATION",
+    greenBarUnitTitle: "PARTICIPATION",
+    blueBarHeader: "ELECTIVE"
 };

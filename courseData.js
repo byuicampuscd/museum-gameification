@@ -154,8 +154,8 @@ function makeUnitObj(data, days) {
         dayObjs.push(makeDayObj(data, days[i]));
     }
 
-    //makes the overall section name = overall
-    dayObjs[0].title = settings.unitAssignments;
+    //makes the overall section name different
+    dayObjs[0].title = settings.unitAssignmentHeader;
 
     //sums up unit points (not including overall section)
     var sumsTemplate = {

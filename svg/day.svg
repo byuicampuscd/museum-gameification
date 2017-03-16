@@ -51,16 +51,14 @@
 			h-7.9H340v4v10.5v148.4v10.5v4h4.1h7.9h1118.1h7.9h4.1v-4v-10.5V323.6v-10.5L1482,309.2L1482,309.2z"/>
 	</g>
 	<g id="title_1_">
-		<text transform="matrix(0.9222 0 0 1 398.1143 356.6611)" class="day3 day4 day5">PROPAGANDA IN AMERICA</text>
-		<text transform="matrix(0.83 0 0 1 398.1152 344.3056)" class="day3 day4 day6">SECTION {{unitNumber}}</text>
-		<text transform="matrix(0.83 0 0 1 513.8301 344.3056)" class="day3 day7 day6">{{dayTitle}}</text>
+		<text transform="matrix(0.83 0 0 1 398.1154 355.8056)" class="day3"><tspan x="0" y="0" class="day4 day5 day6">EXHIBIT {{unitNumber}} </tspan><tspan x="140" y="0" class="day4 day7 day6">{{dayTitle}}</tspan></text>
 	</g>
 	<g id="preparation">
 		<rect x="396.4" y="388" class="day0" width="447.4" height="44.4"/>
 		<rect id="bar" x="396.4" y="388" class="day8" width="0" height="44.4"/>
 		<path class="day0" d="M840.7,391.3v38.8H399v-38.8H840.7 M846.7,385.4h-3.1H396.1H393v3.1v44.4v3.1h3.1h447.4h3.1v-3.1v-44.4v-3.1
 			H846.7L846.7,385.4z"/>
-		<text transform="matrix(0.83 0 0 1 400.3647 460.0041)" class="day8 day4 day9">PREPARATION</text>
+		<text transform="matrix(0.83 0 0 1 400.3647 460.0041)" class="day8 day4 day9">{{Preparation}}</text>
 		<path class="day11" d="M846.1,385.5v3.1v44.2v3.1H843H396.1H393v-3.1v-44.2v-3.1h3.1H843H846.1 M849.5,382.1h-3.4H843H396.1H393
 			h-3.4v3.4v3.1v44.2v3.1v3.4h3.4h3.1H843h3.1h3.4v-3.4v-3.1v-44.2v-3.1V382.1L849.5,382.1z"/>
 		<g id="dynamic_1_" transform="translate({{prepArrow}})">
@@ -95,7 +93,7 @@
 			</g>
 			<text transform="matrix(0.7448 0 0 1 873.4209 374.3488)" class="day14 day4 day12">{{electiveEarned}}</text>
 		</g>
-		<text transform="matrix(0.7448 0 0 1 877.7431 459.9416)" class="day14 day4 day9">ELECTIVE</text>
+		<text transform="matrix(0.7448 0 0 1 877.7431 459.9416)" class="day14 day4 day9">{{electiveBarHeader}}</text>
 	</g>
 	<g>
 		<text id="value_2_" transform="matrix(0.83 0 0 1 1349.8341 426.3146)" class="day3 day4 day15">{{dayEarned}}</text>
