@@ -2,7 +2,7 @@
 const settings = {
     overall: new RegExp(/:o/),
     badge: new RegExp(/:b/), // pass-off
-    badgePassPercent: .7,
+    passPercent: .7,
     preparation: new RegExp(/:r/), // prep
     elective: new RegExp(/:e/) // unused
 
