@@ -4,7 +4,6 @@ const settings = {
     badge: ':b', // pass-off
     preparation: ':r',
     elective: ':e',
-    badgePassPercent: .7, // what percent is required to earn a badge
+    PassPercent: .7, // what percent is required to earn a badge
     unitAssignments: "Section Assignments"
-
-}
+};

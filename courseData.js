@@ -1,7 +1,11 @@
-/*eslint-env node*/
+/*eslint-env browser*/
 /*eslint no-console:0*/
 /*global valence*/
 /*global settings*/
+/*global generateWidget*/
+/*global generate*/
+'use strict';
+
 
 settings.overall = new RegExp(settings.overall);
 settings.badge = new RegExp(settings.badge);
@@ -61,7 +65,7 @@ function makeOverallObj(testCourse, data) {
 
     var oe = data.getFinalCalculatedGrade().pointsNumerator;
 
-    var passingGradePercentage = .7;
+    var passingGradePercentage = settings.passPercent;
 
     //set test courses overall with variables
     testCourse.overall = {
@@ -127,12 +131,9 @@ function makeUnitsArray(testCourse, data) {
  **********************************************************/
 function makeUnitObj(data, days) {
 
-    //make grades array
-    var grades = data.getGrades();
-
     //vars to help determine badge
     var badgeGrade = {},
-        passPercent = settings.badgePassPercent;
+        passPercent = settings.passPercent;
 
     //make dayObjs array
     var dayObjs = [],
@@ -201,7 +202,7 @@ function makeDayObj(data, dayCat) {
 
     //vars to help determine badge
     var badgeGrade = {},
-        passPercent = .7;
+        passPercent = settings.passPercent;
 
     //determine values for prepEarned, prepPoss, totalEarned, and totalPoss 
     var sumsTemplate = {
