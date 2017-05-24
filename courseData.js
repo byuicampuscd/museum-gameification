@@ -7,10 +7,10 @@
 'use strict';
 
 
-settings.overall = new RegExp(settings.overall);
-settings.badge = new RegExp(settings.badge);
-settings.preparation = new RegExp(settings.preparation);
-settings.elective = new RegExp(settings.elective);
+settings.overall = new RegExp(settings.overall, 'i');
+settings.badge = new RegExp(settings.badge, 'i');
+settings.preparation = new RegExp(settings.preparation, 'i');
+settings.elective = new RegExp(settings.elective, 'i');
 
 /************************ TO DO
  create JSON settings file
@@ -276,7 +276,7 @@ function makeDayObj(data, dayCat) {
  **********************************************************/
 function getDayNum(str) {
     // add error handling in case it doesn't find it. or it finds :o....
-    var regEx = /r(\d+)/;
+    var regEx = /r(\d+)/i;
     try {
         var searchResults = regEx.exec(str)[1];
     } catch (err) {
