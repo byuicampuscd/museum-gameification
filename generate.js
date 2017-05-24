@@ -25,7 +25,7 @@ function generate(course) {
     course.units.forEach(function (unit, i) {
         unitContext = {
             unitNumber: i + 1,
-            unitTitle: unit.title,
+            unitTitle: unit.title.toUpperCase(),
             unitEarned: unit.unitEarned,
             unitPossible: unit.unitPossible
         }; // set badge
