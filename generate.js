@@ -1,7 +1,7 @@
 /*eslint-env jquery*/
 /*eslint no-console:0*/
 /*global settings*/
-/*global Handlebars*/
+/*global Handlebars course*/
 
 function generate(course) {
     // declare & set context objects
@@ -29,8 +29,12 @@ function generate(course) {
             unitEarned: unit.unitEarned,
             unitPossible: unit.unitPossible
         }; // set badge
-        if (unit.earnedBadge == false)
+        if (!settings.usingBadges) {
             unitContext.achieved = 'hidden';
+            unitContext.notAchieved = 'hidden';
+        } else if (unit.earnedBadge == false) {
+            unitContext.achieved = 'hidden';
+        }
 
 
         $('#gamificationMuseum').append(Handlebars.templates.unit(unitContext));
@@ -66,11 +70,13 @@ function generate(course) {
 
             //set prep header to participation
             if (day.title.toUpperCase() === settings.unitAssignmentHeader.toUpperCase()) {
-                dayContext.preparation = settings.greenBarUnitTitle.toUpperCase();
+                dayContext.preparationTitle = settings.greenBarUnitTitle.toUpperCase();
             }
 
-            // set badge hidden or visible
-            if (j == 0) {
+            /***** set badge hidden or visible ****/
+
+            // the first room is the unit-level assignments and doesn't need a badge
+            if (j == 0 || !settings.usingBadges) {
                 dayContext.achieved = 'hidden';
                 dayContext.notAchieved = 'hidden';
             } else if (day.badge == false)
