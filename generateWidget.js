@@ -1,5 +1,5 @@
 /*eslint-env jquery*/
-/*eslint no-console:0*/
+/*eslint no-console:0, no-undef:1*/
 
 url = document.getElementById('loveMuffin').href;
 console.clear();

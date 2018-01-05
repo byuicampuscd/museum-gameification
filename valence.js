@@ -27,7 +27,7 @@ var async = require('async'),                               // Used to make vale
         firstName: "",                                                                         // The first name of the user (student/teacher/teacher's aid/etc.) who is accessing the page. 
         lastName: "",                                                                          // The last name of the user (student/teacher/teacher's aid/etc.) who is accessing the page.
         orgUnitId: query.ou,                                                                   // The course's ID. NOTE: This code PROBABLY won't break, but it still could fail if the system were to drastically change.
-        courseName: window.top.$('a[title][href="/d2l/home/' + query.ou + '"]').attr('title'), // The title of the course. BE AWARE! This code is NOT future-proof.
+        courseName: window.top.document.querySelector('a[title][href="/d2l/home/' + query.ou + '"]').title, // The title of the course. BE AWARE! This code is NOT future-proof.
         grades: [],                                                                            // An array containing grade objects
         categories: [],                                                                        // An array containing category objects
         finalCalculatedGrade: null,                                                            // Representation of the final calculated grade object.
@@ -66,7 +66,7 @@ var async = require('async'),                               // Used to make vale
 if (typeof data.courseName === "undefined" || typeof data.orgUnitId === "undefined") {
   var URL = window.location.href;
   data.orgUnitId = URL.substring(URL.lastIndexOf('/')+1, URL.length);
-  data.courseName = window.top.$('a[title][href="/d2l/home' + data.orgUnitId + '"]').attr('title');
+  data.courseName = window.top.document.querySelector('a[title][href="/d2l/home' + data.orgUnitId + '"]').title;
 }
 
 /********************* HELPER FUNCTIONS *********************/
