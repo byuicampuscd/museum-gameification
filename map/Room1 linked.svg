@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 1066 636" enable-background="new 0 0 1066 636" xml:space="preserve">
+<g id="background">
+	
+		<image overflow="visible" width="1066" height="636" id="XMLID_2_" xlink:href="./popupImages/Room1internal.jpg" >
+	</image>
+</g>
+<g id="buttons">
+	<g id="courseThemes">
+		<circle id="XMLID_8_" fill="#2B2B30" cx="483" cy="588" r="17.5"/>
+		<g id="XMLID_5_">
+			<path id="XMLID_6_" fill="#FFFFFF" d="M483,592.2l11.4-8.3v4.4l-11.4,8.3l-11.4-8.3v-4.3L483,592.2z"/>
+		</g>
+	</g>
+	<g id="Room2">
+		<circle id="XMLID_14_" fill="#2B2B30" cx="859.7" cy="588" r="17.5"/>
+		<g id="XMLID_11_">
+			<path id="XMLID_12_" fill="#FFFFFF" d="M863.9,588l-8.3-11.4h4.4l8.3,11.4l-8.3,11.4h-4.3L863.9,588z"/>
+		</g>
+	</g>
+</g>
+</svg>

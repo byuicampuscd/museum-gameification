@@ -1,0 +1,16 @@
+{
+  "name": "barker-proof-of-concept",
+  "version": "1.0.0",
+  "description": "Proof of concept for creating the museum map in D2L",
+  "main": "",
+  "scripts": {
+    "test": "NA"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://www.github.com/byuitechops/barker-proof-of-concept"
+  },
+  "author": "Daniel Green",
+  "license": "",
+  "devDependencies": ""
+}
