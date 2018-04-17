@@ -266,12 +266,6 @@ var links = [{
     image: 'visitorCenter.jpg',
     homePage: true,
     filePath: ''
-}, {
-    selector: 'essay1',
-    description: 'Write a good 5 paragraph essay of about 1000 words exploring and aspect of what we\'ve been learning in this unit. This is to be polished academic prose. Avoid first person, unsupported opinion, and do not turn in a first draft. This is not a report, summarizing information we\'ve learned. Rather, it\'s expository writing which is making an assertion, a connection or a claim and attempting to persuade the reader. Use the skills you learned in FDENG 101 and do not plagiarize.',
-    image: 'visitorCenter.jpg',
-    filePath: 'visitorsCenter.html'
-
 }];
 
 // ERROR if the description is a mile long (like the essays), it will NOT display properly within the tooltip
