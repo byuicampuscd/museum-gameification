@@ -31,6 +31,11 @@ var links = [{
     image: 'paradiso.jpg',
     filePath: 'Paradiso.html'
 }, {
+    selector: 'visitorsCenter',
+    description: 'Visitor\'s Center',
+    image: 'visitorCenter.jpg',
+    filePath: 'visitorsCenter.html'
+}, {
     selector: 'courseThemes',
     description: 'Rooms 1-3',
     image: 'courseThemes.jpg',
