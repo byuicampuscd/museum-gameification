@@ -268,20 +268,11 @@ var links = [{
     filePath: ''
 }];
 
-// ERROR if the description is a mile long (like the essays), it will NOT display properly within the tooltip
 // ERROR a single bad filePath will stop the background image from loading
 // ERROR a missing IMAGE property will do the same.... poop.
 
-/* this makes the icons stay while hovering over the tooltip */
-// function tooltipOpacity(instance, helper) {
-//     $('.tooltipster-base').hover(function () {
-//         $('.button').css('opacity', '1');
-//     }, function () {
-//         $('.button').css('opacity', '0');
-//     });
-// }
 
-/* adds an event listener that makes all D2L icons appear on hover
+/* adds an event listener that makes all custom icons appear on hover
 and vanish off hover */
 function toggleVisibility() {
     $('.wrapper, .button').hover(function () {
@@ -295,66 +286,11 @@ function toggleVisibility() {
     });
 }
 
-// function generateQuizPopups() {
-//     $('.quiz').tooltipster({
-//         theme: ['tooltipster-shadow', 'tooltipster-shadow-customized'],
-//         contentAsHTML: true,
-//         interactive: true,
-//         functionReady: tooltipOpacity
-//     });
-// }
-
 $(document).ready(function () {
     toggleVisibility();
-    // generateQuizPopups(); // why is this its own function?
-    // var courseCode = window.location.pathname.match(/(?:enforced|home)\/(\d+.*\/)/);
-    // if (courseCode != null) {
-    //     courseCode = courseCode[1];
-    //     var ou = courseCode.match(/\d+(?=-)/)[0];
-    // }
-
-    // var ou = /instructure\.com\/courses\/\d*~(\d*)\//g.exec(window.location.href)[1];
-
-    // function buildTooltipHTML(link) {
-    //     var htmlStr = '';
-    //     /* format the link differently if it leads back to course homepage */
-    //     if (link.homePage)
-    //         link.filePath = 'https://byui.instructure.com/courses/' + ou;
-    //     else
-    //         link.filePath = './' + link.filePath;
-
-    //     htmlStr += '<a href=\'' + link.filePath + '\' target=\'_top\' class=\'popupLink\'>';
-
-    //     if (link.image != '')
-    //         // htmlStr += `<img class='popupImage' src='/content/enforced/${courseCode}gamification/map/popupImages/${link.image}'style='height:150px'>`;
-    //         // TESTING use the commented out line for production
-    //         // FOR D2L LMS
-    //         // htmlStr += `<img class='popupImage' src='/content/enforced/${courseCode}/popupImages/${link.image}'style='height:150px'>`;
-    //         // FOR CANVAS LMS
-    //         htmlStr += `<img class='popupImage' src='popupImages/${link.image}'style='height:150px'>`;
-    //     htmlStr += '<p>' + link.description + '</p></a>';
-
-    //     return htmlStr;
-    // }
 
     /* START HERE */
     links.forEach(function (link) {
-        // $('#' + link.selector).tooltipster({
-        //     content: buildTooltipHTML(link),
-        //     interactive: true,
-        //     contentAsHTML: true,
-        //     theme: ['tooltipster-shadow', 'tooltipster-shadow-customized'],
-        //     functionReady: tooltipOpacity,
-        //     trigger: 'custom',
-        //     triggerOpen: {
-        //         tap: true,
-        //         mouseenter: true
-        //     },
-        //     triggerClose: {
-        //         tap: true,
-        //         mouseleave: true
-        //     }
-        // });
 
         // ERROR this is too unreliable
         /* if the current link in the loop is the page we're currently on... */
@@ -365,7 +301,7 @@ $(document).ready(function () {
             document.querySelector('#background image').href.baseVal = `./popupImages/${link.image}`;
         }
 
-        /* Make the icons links as well as the tooltips */
+        /* Make the icons links */
         // wrapping the buttons with links using jQuery broke so now we're assuming the link is already there and we're setting the href property
         if (document.querySelector(`#${link.selector}`) !== null) {
             
