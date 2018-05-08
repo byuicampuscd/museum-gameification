@@ -90,7 +90,6 @@ function makeUnitsArray(testCourse, data) {
 
     // fill unitObj array with unit objects
     unitObjs = units.map(unit => {
-        // WARNING this should return an Obj with all assignments, but it's not
         return makeUnitObj(data, unit); 
     });
 
@@ -108,9 +107,6 @@ function makeUnitsArray(testCourse, data) {
  * outputs: unit object
  **********************************************************/
 function makeUnitObj(data, days) {
-
-    // WARNING POSSIBLE BUG LOCATION
-    
     //  make grades array
     var grades = data.getGrades();
 
@@ -190,9 +186,6 @@ function makeUnitObj(data, days) {
  * outputs: day object
  **********************************************************/
 function makeDayObj(data, dayCat) {
-
-    // WARNING POSSIBLE BUG LOCATION
-    
     // make grades array
     var grades = data.getGrades();
 
