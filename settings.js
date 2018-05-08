@@ -6,11 +6,11 @@ const settings = {
     elective: ':e',
     roomPassPercent: 1, // what percent is required to earn a badge
     exhibitPassPercent: .92, // what percent is required to earn a badge
-    courseTitle: "World Civilizations Part I",
-    courseCode: "FDWLD 101",
-    unitAssignmentHeader: "Unit Level Assignments",
-    greenBarTitle: "PREPARATION",
-    greenBarUnitTitle: "UNIT ESSAY",
-    blueBarTitle: "ELECTIVE",
-    roomTitle: "UNIT"
+    courseTitle: 'World Civilizations Part I',
+    courseCode: 'FDWLD 101',
+    unitAssignmentHeader: 'Unit Level Assignments',
+    greenBarTitle: 'PREPARATION',
+    greenBarUnitTitle: 'UNIT ESSAY',
+    blueBarTitle: 'ELECTIVE',
+    roomTitle: 'UNIT'
 };
