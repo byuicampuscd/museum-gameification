@@ -1,6 +1,10 @@
-# Museum Gamefication Notes #
+# Museum Gamefication
 
 This was developed for Devan Barker (campus) and is specific to the D2L LMS. It has been used in FDWLD & FDHUM courses taught by him. It includes a widget displaying a students overall grade and a student progress page which is essentially a custom UI for the gradebook. It also includes an interactive map, which was also used in these courses (hence the 'map' folder).
+
+**IMPORTANT**
+
+Since we've moved from D2L to Canvas it's unlikely we'll keep working on this project. However, the Canvas proof-of-concepts are all kept [here](https://byui.instructure.com/courses/10784/modules).
 
 ## Widget & Student Progress ##
 
